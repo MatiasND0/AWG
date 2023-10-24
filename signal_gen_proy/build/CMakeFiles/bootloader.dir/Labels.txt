@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/matiasnd/esp-workspace/signal_gen_proy/build/CMakeFiles/bootloader
+/home/matiasnd/esp-workspace/signal_gen_proy/build/CMakeFiles/bootloader.rule
+/home/matiasnd/esp-workspace/signal_gen_proy/build/CMakeFiles/bootloader-complete.rule
+/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

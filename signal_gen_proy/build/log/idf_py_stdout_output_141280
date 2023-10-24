@@ -1,0 +1,50 @@
+[1/9] Performing build step for 'bootloader'
+[1/1] cd /home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader/esp-idf/esptool_py && /home/matiasnd/.espressif/python_env/idf5.2_py3.10_env/bin/python /home/matiasnd/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader/bootloader.bin
+Bootloader binary size 0x6900 bytes. 0x700 bytes (6%) free.
+[2/7] Building C object esp-idf/dac_cos_func/CMakeFiles/__idf_dac_cos_func.dir/dac_cos_func.c.obj
+/home/matiasnd/esp-workspace/signal_gen_proy/components/dac_cos_func/dac_cos_func.c: In function 'dac_cos_init':
+/home/matiasnd/esp-workspace/signal_gen_proy/components/dac_cos_func/dac_cos_func.c:9:22: warning: passing argument 1 of 'dac_cosine_start' from incompatible pointer type [-Wincompatible-pointer-types]
+    9 |     dac_cosine_start(ret_handle);
+      |                      ^~~~~~~~~~
+      |                      |
+      |                      struct dac_cosine_s **
+In file included from /home/matiasnd/esp-workspace/signal_gen_proy/components/dac_cos_func/include/dac_cos_func.h:10,
+                 from /home/matiasnd/esp-workspace/signal_gen_proy/components/dac_cos_func/dac_cos_func.c:2:
+/home/matiasnd/esp/esp-idf/components/driver/dac/include/driver/dac_cosine.h:80:48: note: expected 'dac_cosine_handle_t' {aka 'struct dac_cosine_s *'} but argument is of type 'struct dac_cosine_s **'
+   80 | esp_err_t dac_cosine_start(dac_cosine_handle_t handle);
+      |                            ~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from /home/matiasnd/esp/esp-idf/components/driver/dac/include/driver/dac_cosine.h:10:
+/home/matiasnd/esp-workspace/signal_gen_proy/components/dac_cos_func/dac_cos_func.c: In function 'dac_cos_freq_update':
+/home/matiasnd/esp-workspace/signal_gen_proy/components/dac_cos_func/dac_cos_func.c:21:41: warning: passing argument 1 of 'dac_cosine_stop' from incompatible pointer type [-Wincompatible-pointer-types]
+   21 |         ESP_ERROR_CHECK(dac_cosine_stop(ret_handle));
+      |                                         ^~~~~~~~~~
+      |                                         |
+      |                                         struct dac_cosine_s **
+/home/matiasnd/esp/esp-idf/components/esp_common/include/esp_err.h:117:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  117 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/home/matiasnd/esp/esp-idf/components/driver/dac/include/driver/dac_cosine.h:91:47: note: expected 'dac_cosine_handle_t' {aka 'struct dac_cosine_s *'} but argument is of type 'struct dac_cosine_s **'
+   91 | esp_err_t dac_cosine_stop(dac_cosine_handle_t handle);
+      |                           ~~~~~~~~~~~~~~~~~~~~^~~~~~
+/home/matiasnd/esp-workspace/signal_gen_proy/components/dac_cos_func/dac_cos_func.c:22:48: warning: passing argument 1 of 'dac_cosine_del_channel' from incompatible pointer type [-Wincompatible-pointer-types]
+   22 |         ESP_ERROR_CHECK(dac_cosine_del_channel(ret_handle));
+      |                                                ^~~~~~~~~~
+      |                                                |
+      |                                                struct dac_cosine_s **
+/home/matiasnd/esp/esp-idf/components/esp_common/include/esp_err.h:117:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  117 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/home/matiasnd/esp/esp-idf/components/driver/dac/include/driver/dac_cosine.h:69:54: note: expected 'dac_cosine_handle_t' {aka 'struct dac_cosine_s *'} but argument is of type 'struct dac_cosine_s **'
+   69 | esp_err_t dac_cosine_del_channel(dac_cosine_handle_t handle);
+      |                                  ~~~~~~~~~~~~~~~~~~~~^~~~~~
+[3/7] Linking C static library esp-idf/dac_cos_func/libdac_cos_func.a
+[4/7] Generating ld/sections.ld
+[5/7] Linking CXX executable app-template.elf
+[6/7] Generating binary image from built executable
+esptool.py v4.7.dev2
+Creating esp32 image...
+Merged 2 ELF sections
+Successfully created esp32 image.
+Generated /home/matiasnd/esp-workspace/signal_gen_proy/build/app-template.bin
+[7/7] cd /home/matiasnd/esp-workspace/signal_gen_proy/build/esp-idf/esptool_py && /home/matiasnd/.espressif/python_env/idf5.2_py3.10_env/bin/python /home/matiasnd/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/matiasnd/esp-workspace/signal_gen_proy/build/partition_table/partition-table.bin /home/matiasnd/esp-workspace/signal_gen_proy/build/app-template.bin
+app-template.bin binary size 0x2c760 bytes. Smallest app partition is 0x100000 bytes. 0xd38a0 bytes (83%) free.
