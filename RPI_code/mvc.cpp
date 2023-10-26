@@ -71,6 +71,7 @@ class c_my_dialog : public c_dialog
 		c_spin_box_2->set_value(0);
 		c_spin_box_3->set_value(5);
 		c_spin_box_4->set_value(0);
+
 	}
 
 	virtual void on_paint(void)
@@ -89,7 +90,10 @@ class c_my_dialog : public c_dialog
 		m_surface->draw_line(95+175, 150, 95+175, 285,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
 		m_surface->draw_line(95+265, 150, 95+265, 285,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
 	
-		m_surface->draw_rect(94, 34, 446, 150,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
+		m_surface->draw_rect(244, 41, 320, 41+25, GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
+		m_surface->draw_rect(244, 41, 320, 41+2*25, GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
+		m_surface->draw_rect(244, 41, 320, 41+3*25, GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
+		m_surface->draw_rect(244, 41, 320, 41+4*25, GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
 
 	}
 
@@ -119,10 +123,10 @@ WND_TREE s_dialog_widgets[] =
 	{ &s_label_2,	ID_LABEL_12,	"Phase",			15, 25+7, 75, 25},
 	{ &s_label_3,	ID_LABEL_13,	"Amplitude",		15, 50+7, 75, 25},
 	{ &s_label_4,	ID_LABEL_14,	"Offset",			15, 75+7, 75, 25},
-	{ &s_spin_box_1,ID_SPIN_BOX_11,		"1000 Hz",		100, 0+7, 75, 25},
-	{ &s_spin_box_2,ID_SPIN_BOX_12,		"0 deg",				100, 25+7, 75, 25},
-	{ &s_spin_box_3,ID_SPIN_BOX_13,		"5 Vpp",			100, 50+7, 75, 25},
-	{ &s_spin_box_4,ID_SPIN_BOX_14,		"0 V",				100, 75+7, 75, 25},
+	{ &s_spin_box_1,ID_SPIN_BOX_11,		"1000 Hz",		150, 0+7, 75, 25},
+	{ &s_spin_box_2,ID_SPIN_BOX_12,		"0 deg",		150, 25+7, 75, 25},
+	{ &s_spin_box_3,ID_SPIN_BOX_13,		"5 Vpp",		150, 50+7, 75, 25},
+	{ &s_spin_box_4,ID_SPIN_BOX_14,		"0 V",			150, 75+7, 75, 25},
 	{NULL, 0 , 0, 0, 0, 0, 0}
 };
 
@@ -175,7 +179,6 @@ void mainLoop(void* phy_fb, int width, int height, int color_bytes){
 	}
 
    // Read the message from the named pipe
-
 
 	thread_sleep(1);
 	
