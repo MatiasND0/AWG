@@ -43,26 +43,13 @@ class MVC : public c_wnd
 		c_button* main_button_2 = (c_button*)get_wnd_ptr(ID_BUTTON_2);
 		c_button* main_button_3 = (c_button*)get_wnd_ptr(ID_BUTTON_3);
 		c_button* main_button_4 = (c_button*)get_wnd_ptr(ID_BUTTON_4);
+		c_button* main_button_5 = (c_button*)get_wnd_ptr(ID_BUTTON_5);
 		main_button_1->set_on_click((WND_CALLBACK)&MVC::on_button_clicked);
+		main_button_2->set_on_click((WND_CALLBACK)&MVC::on_button_clicked);
+		main_button_3->set_on_click((WND_CALLBACK)&MVC::on_button_clicked);
+		main_button_4->set_on_click((WND_CALLBACK)&MVC::on_button_clicked);
+		main_button_5->set_on_click((WND_CALLBACK)&MVC::on_button_clicked);
 
-	}
-	virtual void on_paint(void)
-	{
-		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(ID_DIALOG));
-		m_surface->draw_rect(4, 34, 81, 286,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
-	}
-
-	void on_button_clicked(int ctrl_id, int param)
-	{
-		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(ID_DIALOG));
-		printf("Boton Apretado\n");
-	}
-};
-
-class c_my_dialog : public c_dialog
-{
-	virtual void on_init_children()
-	{
 		c_spin_box *c_spin_box_1 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_11);
 		c_spin_box *c_spin_box_2 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_12);
 		c_spin_box *c_spin_box_3 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_13);
@@ -71,74 +58,131 @@ class c_my_dialog : public c_dialog
 		c_spin_box_2->set_value(0);
 		c_spin_box_3->set_value(5);
 		c_spin_box_4->set_value(0);
+		c_spin_box_1->set_on_change((WND_CALLBACK)&MVC::on_spinbox_change);
 
 	}
-
 	virtual void on_paint(void)
 	{
-		m_surface->draw_rect(94, 34, 446, 150,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
-		m_surface->draw_rect(94, 149, 446, 286,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
-		m_surface->fill_rect(95, 150, 445, 285,GL_RGB(25, 25, 25),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95, 217, 445, 217,GL_RGB(100, 100, 100),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95, 184, 445, 184,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95, 251, 445, 251,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
+		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(ID_DIALOG));
 
+		m_surface->draw_rect(4, 34, 81, 286,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//buttons rect
+		m_surface->draw_rect(94, 34, 446, 180,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//params rect
+		m_surface->draw_rect(94, 149, 446, 286,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//chart rect
+
+		draw_chart();
+	}
+
+	void draw_sqr(void){
+		//segmentos verticales
+		m_surface->draw_line(95+88, 184, 95+88, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+175, 184, 95+175, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+265, 184, 95+265, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+
+		//segmentos horizontales
+		m_surface->draw_line(95, 184, 95+88, 184,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+88, 251, 95+87*2, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+88*2, 184, 95+88*3, 184,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+88*3+1, 251, 95+88*4-1, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+	}
+
+	void draw_ramp(void){
+		m_surface->draw_line(95, 217, 95+(88*1)/2, 217-2*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+(88*1)/2, 217-2*34, 95+(88*3)/2, 217+2*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+(88*3)/2, 217+2*34, 95+(88*5)/2, 217-2*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+(88*5)/2, 217-2*34, 95+(88*7)/2, 217+2*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+(88*7)/2, 217+2*34, 94+(88*8)/2, 217-0*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+	}
+
+	void draw_sine(void){
 		for(int i=0;i<350;i++)	
 			m_surface->draw_line((95+i),(217-50*sin(i*3.14/88)),(95+i+1),(217-50*sin((i+1)*3.14/88)),GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+	}
+	
+	void draw_noise(void){
+		int last_noise = 0;
+		int noise = 0;
+		for(int i=0;i<350;i++)
+		{
+			noise = rand()%70;
+			m_surface->draw_line(95+i ,217+35-noise ,95+i+1 ,217+35-last_noise ,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			last_noise = noise;
+		}
+	}	
 
+	void draw_chart(void){
+		//chart background
+		m_surface->fill_rect(95, 150, 445, 285,GL_RGB(25, 25, 25),Z_ORDER_LEVEL_2);
+
+		//grid vertical
 		m_surface->draw_line(95+88, 150, 95+88, 285,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
 		m_surface->draw_line(95+175, 150, 95+175, 285,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
 		m_surface->draw_line(95+265, 150, 95+265, 285,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
-	
-		m_surface->draw_rect(244, 41, 320, 41+25, GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
-		m_surface->draw_rect(244, 41, 320, 41+2*25, GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
-		m_surface->draw_rect(244, 41, 320, 41+3*25, GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
-		m_surface->draw_rect(244, 41, 320, 41+4*25, GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);
+		
+		//grid horizontal
+		m_surface->draw_line(95, 184, 445, 184,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95, 217, 445, 217,GL_RGB(100, 100, 100),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95, 251, 445, 251,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
+	}	
 
-	}
+	
 
 	void on_button_clicked(int ctrl_id, int param)
 	{
 		switch (ctrl_id)
 		{
-		case ID_BUTTON_10:
-			c_dialog::close_dialog(m_surface);
-			break;
-		default:
-			break;
+			case ID_BUTTON_1://sine
+				draw_chart();
+				draw_sine();
+				break;
+			case ID_BUTTON_2://ramp
+				draw_chart();
+				draw_ramp();
+				break;
+			case ID_BUTTON_3://square
+				draw_chart();
+				draw_sqr();
+				break;
+			case ID_BUTTON_4://pulse
+				draw_chart();
+				//draw_sqr();
+				break;
+			case ID_BUTTON_5://noise
+				draw_chart();
+				draw_noise();
+				break;
+			default:
+				break;
 		}
+	}
+
+	void on_spinbox_change(int ctrl_id, int param)
+	{
+		printf("Boton Apretado\n");
 	}
 };
 
 static MVC mvc;
 static c_button main_button_1,main_button_2,main_button_3,main_button_4,main_button_5;
 
-static c_my_dialog s_my_dialog;
 static c_label s_label_1, s_label_2, s_label_3, s_label_4;
 static c_spin_box s_spin_box_1,s_spin_box_2,s_spin_box_3,s_spin_box_4;
 
-WND_TREE s_dialog_widgets[] =
-{
-	{ &s_label_1,	ID_LABEL_11,	"Frequency",		15, 0+7, 75, 25},
-	{ &s_label_2,	ID_LABEL_12,	"Phase",			15, 25+7, 75, 25},
-	{ &s_label_3,	ID_LABEL_13,	"Amplitude",		15, 50+7, 75, 25},
-	{ &s_label_4,	ID_LABEL_14,	"Offset",			15, 75+7, 75, 25},
-	{ &s_spin_box_1,ID_SPIN_BOX_11,		"1000 Hz",		150, 0+7, 75, 25},
-	{ &s_spin_box_2,ID_SPIN_BOX_12,		"0 deg",		150, 25+7, 75, 25},
-	{ &s_spin_box_3,ID_SPIN_BOX_13,		"5 Vpp",		150, 50+7, 75, 25},
-	{ &s_spin_box_4,ID_SPIN_BOX_14,		"0 V",			150, 75+7, 75, 25},
-	{NULL, 0 , 0, 0, 0, 0, 0}
-};
 
 WND_TREE main_window[] =
 {
-	{ &main_button_1,	ID_BUTTON_1,	"Sine",		5, 35, 75, 50},
-	{ &main_button_2,	ID_BUTTON_2,	"Ramp",		5, 85, 75, 50},
-	{ &main_button_3,	ID_BUTTON_3,	"Square",	5, 135, 75, 50},
-	{ &main_button_4,	ID_BUTTON_4,	"Pulse",	5, 185, 75, 50},
-	{ &main_button_5,	ID_BUTTON_5,	"Noise",	5, 235, 75, 50},
-
-	{ &s_my_dialog,	ID_DIALOG,	"Dialog",	95, 35, 445, 285, s_dialog_widgets},
+	{ &main_button_1,	ID_BUTTON_1,		"Sine",				5, 35, 75, 50},
+	{ &main_button_2,	ID_BUTTON_2,		"Ramp",				5, 85, 75, 50},
+	{ &main_button_3,	ID_BUTTON_3,		"Square",			5, 135, 75, 50},
+	{ &main_button_4,	ID_BUTTON_4,		"Pulse",			5, 185, 75, 50},
+	{ &main_button_5,	ID_BUTTON_5,		"Noise",			5, 235, 75, 50},
+	{ &s_spin_box_1,	ID_SPIN_BOX_11,		"1000 Hz",			95+15+75, 35+116/4-30/2, 75, 30},
+	{ &s_spin_box_2,	ID_SPIN_BOX_12,		"0 deg",			95+15+75, 35+116*2/4+30/2, 75, 30},
+	{ &s_spin_box_3,	ID_SPIN_BOX_13,		"5 Vpp",			95+190+75, 35+116/4-30/2, 75, 30},
+	{ &s_spin_box_4,	ID_SPIN_BOX_14,		"0 V",				95+190+75, 35+116*2/4+30/2, 75, 30},
+	{ &s_label_1,		ID_LABEL_11,		"Frequency",		95+15, 35+116/4-30/2, 75, 30},
+	{ &s_label_2,		ID_LABEL_12,		"Phase",			95+15, 35+116*2/4+30/2, 75, 30},
+	{ &s_label_3,		ID_LABEL_13,		"Amplitude",		95+190, 35+116/4-30/2, 75, 30},
+	{ &s_label_4,		ID_LABEL_14,		"Offset",			95+190, 35+116*2/4+30/2, 75, 30},
 	{NULL, 0, 0, 0, 0, 0, 0}
 };
 
