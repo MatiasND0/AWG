@@ -13,6 +13,12 @@
 #define UI_WIDTH 480
 #define UI_HEIGHT 320
 
+//charts
+#define C_WIDTH_S 	95		//Start
+#define C_HEIGHT_S 	150		//Start
+#define C_WIDTH_R 	350		//Relative
+#define C_HEIGHT_R 	140		//Relative
+
 enum WND_ID
 {
 	ID_ROOT = 1,
@@ -66,10 +72,11 @@ class MVC : public c_wnd
 		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(ID_DIALOG));
 
 		m_surface->draw_rect(4, 34, 81, 286,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//buttons rect
-		m_surface->draw_rect(94, 34, 446, 180,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//params rect
-		m_surface->draw_rect(94, 149, 446, 286,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//chart rect
+		//m_surface->draw_rect(94, 34, 446, 180,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//params rect
+		m_surface->draw_rect(C_WIDTH_S-1,C_HEIGHT_S-1,C_WIDTH_S+C_WIDTH_R+1,C_HEIGHT_S+C_HEIGHT_R+1,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//chart rect
 
 		draw_chart();
+		draw_sine(50,0);
 	}
 
 	void draw_sqr(void){
@@ -87,15 +94,15 @@ class MVC : public c_wnd
 
 	void draw_ramp(void){
 		m_surface->draw_line(95, 217, 95+(88*1)/2, 217-2*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+(88*1)/2, 217-2*34, 95+(88*3)/2, 217+2*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+(88*3)/2, 217+2*34, 95+(88*5)/2, 217-2*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+(88*5)/2, 217-2*34, 95+(88*7)/2, 217+2*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+(88*7)/2, 217+2*34, 94+(88*8)/2, 217-0*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+(88*1)/2, 217-2*34, 95+(88*3)/2, 217+1*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+(88*3)/2, 217+1*34, 95+(88*5)/2, 217-2*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+(88*5)/2, 217-2*34, 95+(88*7)/2, 217+1*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(95+(88*7)/2, 217+1*34, 94+(88*8)/2, 217-0*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 	}
 
-	void draw_sine(void){
+	void draw_sine(int amp, int phase){
 		for(int i=0;i<350;i++)	
-			m_surface->draw_line((95+i),(217-50*sin(i*3.14/88)),(95+i+1),(217-50*sin((i+1)*3.14/88)),GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			m_surface->draw_line((C_WIDTH_S+i),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin(i*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase)),(95+i+1),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin((i+1)*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase)),GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 	}
 	
 	void draw_noise(void){
@@ -111,17 +118,20 @@ class MVC : public c_wnd
 
 	void draw_chart(void){
 		//chart background
-		m_surface->fill_rect(95, 150, 445, 285,GL_RGB(25, 25, 25),Z_ORDER_LEVEL_2);
+		m_surface->fill_rect(C_WIDTH_S,C_HEIGHT_S,C_WIDTH_S+C_WIDTH_R,C_HEIGHT_S+C_HEIGHT_R,GL_RGB(25, 25, 25),Z_ORDER_LEVEL_0);
 
 		//grid vertical
-		m_surface->draw_line(95+88, 150, 95+88, 285,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+175, 150, 95+175, 285,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+265, 150, 95+265, 285,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
-		
-		//grid horizontal
-		m_surface->draw_line(95, 184, 445, 184,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95, 217, 445, 217,GL_RGB(100, 100, 100),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95, 251, 445, 251,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
+		for (int i=1;i<11;i++)
+			m_surface->draw_line(C_WIDTH_S+i*(C_WIDTH_R/10), C_HEIGHT_S, C_WIDTH_S+i*(C_WIDTH_R/10), C_HEIGHT_S+C_HEIGHT_R,GL_RGB(50, 50, 50),Z_ORDER_LEVEL_2);
+	
+		for (int i=1;i<11;i++)
+			m_surface->draw_line(C_WIDTH_S, C_HEIGHT_S+i*(C_HEIGHT_R/10), C_WIDTH_S+C_WIDTH_R, C_HEIGHT_S+i*(C_HEIGHT_R/10),GL_RGB(50, 50, 50),Z_ORDER_LEVEL_1);
+
+		//axies
+		m_surface->draw_line(C_WIDTH_S, C_HEIGHT_S+C_HEIGHT_R/2, C_WIDTH_S+C_WIDTH_R, C_HEIGHT_S+C_HEIGHT_R/2,GL_RGB(100, 100, 100),Z_ORDER_LEVEL_2);
+		m_surface->draw_line(C_WIDTH_S+(C_WIDTH_R/10), C_HEIGHT_S, C_WIDTH_S+(C_WIDTH_R/10), C_HEIGHT_S+C_HEIGHT_R, GL_RGB(100, 100, 100),Z_ORDER_LEVEL_2);
+
+
 	}	
 
 	
@@ -132,7 +142,7 @@ class MVC : public c_wnd
 		{
 			case ID_BUTTON_1://sine
 				draw_chart();
-				draw_sine();
+				draw_sine(30,3.14/2);
 				break;
 			case ID_BUTTON_2://ramp
 				draw_chart();
