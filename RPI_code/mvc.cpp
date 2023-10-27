@@ -32,11 +32,12 @@ enum WND_ID
 	ID_LABEL_12,
 	ID_LABEL_13,
 	ID_LABEL_14,
-	ID_SPIN_BOX_11,
-	ID_SPIN_BOX_12,
-	ID_SPIN_BOX_13,
-	ID_SPIN_BOX_14,
-	ID_DIALOG
+	ID_SPIN_BOX_1,
+	ID_SPIN_BOX_2,
+	ID_SPIN_BOX_3,
+	ID_SPIN_BOX_4,
+	ID_LIST_BOX_1,
+	ID_LIST_BOX_2
 };
 
 static c_display *pantalla;
@@ -45,21 +46,32 @@ class MVC : public c_wnd
 {
 	virtual void on_init_children()
 	{		
-		c_button* main_button_1 = (c_button*)get_wnd_ptr(ID_BUTTON_1);
-		c_button* main_button_2 = (c_button*)get_wnd_ptr(ID_BUTTON_2);
+
+		c_list_box* list_box_1 = (c_list_box*)get_wnd_ptr(ID_LIST_BOX_1);
+		list_box_1->set_on_change((WND_CALLBACK)&MVC::on_listbox_confirm);
+		list_box_1->clear_item();
+		list_box_1->add_item((char*)"Sine");
+		list_box_1->add_item((char*)"Ramp");
+		list_box_1->add_item((char*)"Square");
+		list_box_1->add_item((char*)"Noise");
+		list_box_1->add_item((char*)"Pulse");
+		list_box_1->select_item(3);
+
+		c_list_box* list_box_2 = (c_list_box*)get_wnd_ptr(ID_LIST_BOX_2);
+		list_box_2->clear_item();
+		list_box_2->add_item((char*)"CH1");
+		list_box_2->add_item((char*)"CH2");
+		list_box_2->select_item(0);
+
+
 		c_button* main_button_3 = (c_button*)get_wnd_ptr(ID_BUTTON_3);
 		c_button* main_button_4 = (c_button*)get_wnd_ptr(ID_BUTTON_4);
 		c_button* main_button_5 = (c_button*)get_wnd_ptr(ID_BUTTON_5);
-		main_button_1->set_on_click((WND_CALLBACK)&MVC::on_button_clicked);
-		main_button_2->set_on_click((WND_CALLBACK)&MVC::on_button_clicked);
-		main_button_3->set_on_click((WND_CALLBACK)&MVC::on_button_clicked);
-		main_button_4->set_on_click((WND_CALLBACK)&MVC::on_button_clicked);
-		main_button_5->set_on_click((WND_CALLBACK)&MVC::on_button_clicked);
 
-		c_spin_box *c_spin_box_1 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_11);
-		c_spin_box *c_spin_box_2 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_12);
-		c_spin_box *c_spin_box_3 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_13);
-		c_spin_box *c_spin_box_4 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_14);
+		c_spin_box *c_spin_box_1 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_1);
+		c_spin_box *c_spin_box_2 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_2);
+		c_spin_box *c_spin_box_3 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_3);
+		c_spin_box *c_spin_box_4 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_4);
 		c_spin_box_1->set_value(1000);
 		c_spin_box_2->set_value(0);
 		c_spin_box_3->set_value(5);
@@ -69,27 +81,37 @@ class MVC : public c_wnd
 	}
 	virtual void on_paint(void)
 	{
-		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(ID_DIALOG));
-
 		m_surface->draw_rect(4, 34, 81, 286,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//buttons rect
 		//m_surface->draw_rect(94, 34, 446, 180,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//params rect
 		m_surface->draw_rect(C_WIDTH_S-1,C_HEIGHT_S-1,C_WIDTH_S+C_WIDTH_R+1,C_HEIGHT_S+C_HEIGHT_R+1,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//chart rect
 
 		draw_chart();
-		draw_sine(50,0);
+		draw_sqr(C_HEIGHT_R/10*4,C_HEIGHT_R/10*2,4);
 	}
 
-	void draw_sqr(void){
+	void draw_sqr(int amp_h,int amp_l,int freq){
+		int j=0;
+		for (int i = -1; i < 10; i+=2)
+		{
+			m_surface->draw_line(C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2+amp_l,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			if(j%2 == 0)
+				m_surface->draw_line(C_WIDTH_S+C_WIDTH_R*i/10, C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R*(i+2)/10, C_HEIGHT_S+C_HEIGHT_R/2-amp_h,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			else
+				m_surface->draw_line(C_WIDTH_S+C_WIDTH_R*i/10, C_HEIGHT_S+C_HEIGHT_R/2+amp_l, C_WIDTH_S+C_WIDTH_R*(i+2)/10, C_HEIGHT_S+C_HEIGHT_R/2+amp_l,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			j++;
+		}
+		
+
 		//segmentos verticales
-		m_surface->draw_line(95+88, 184, 95+88, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+175, 184, 95+175, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+265, 184, 95+265, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		//m_surface->draw_line(95+88, 184, 95+88, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		//m_surface->draw_line(95+175, 184, 95+175, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		//m_surface->draw_line(95+265, 184, 95+265, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 
 		//segmentos horizontales
-		m_surface->draw_line(95, 184, 95+88, 184,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+88, 251, 95+87*2, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+88*2, 184, 95+88*3, 184,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+88*3+1, 251, 95+88*4-1, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		//m_surface->draw_line(95, 184, 95+88, 184,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		//m_surface->draw_line(95+88, 251, 95+87*2, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		//m_surface->draw_line(95+88*2, 184, 95+88*3, 184,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		//m_surface->draw_line(95+88*3+1, 251, 95+88*4-1, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 	}
 
 	void draw_ramp(void){
@@ -136,29 +158,28 @@ class MVC : public c_wnd
 
 	
 
-	void on_button_clicked(int ctrl_id, int param)
+	void on_listbox_confirm(int ctrl_id, int value)
 	{
-		switch (ctrl_id)
+		switch (value)
 		{
-			case ID_BUTTON_1://sine
+			case 0://sine
 				draw_chart();
 				draw_sine(30,3.14/2);
 				break;
-			case ID_BUTTON_2://ramp
+			case 1://ramp
 				draw_chart();
 				draw_ramp();
 				break;
-			case ID_BUTTON_3://square
+			case 2://square
 				draw_chart();
-				draw_sqr();
+				draw_sqr(50,25,10);
 				break;
-			case ID_BUTTON_4://pulse
-				draw_chart();
-				//draw_sqr();
-				break;
-			case ID_BUTTON_5://noise
+			case 3://pulse
 				draw_chart();
 				draw_noise();
+				break;
+			case 4://noise
+				draw_chart();
 				break;
 			default:
 				break;
@@ -173,6 +194,7 @@ class MVC : public c_wnd
 
 static MVC mvc;
 static c_button main_button_1,main_button_2,main_button_3,main_button_4,main_button_5;
+static c_list_box list_box_1,list_box_2;
 
 static c_label s_label_1, s_label_2, s_label_3, s_label_4;
 static c_spin_box s_spin_box_1,s_spin_box_2,s_spin_box_3,s_spin_box_4;
@@ -180,15 +202,15 @@ static c_spin_box s_spin_box_1,s_spin_box_2,s_spin_box_3,s_spin_box_4;
 
 WND_TREE main_window[] =
 {
-	{ &main_button_1,	ID_BUTTON_1,		"Sine",				5, 35, 75, 50},
-	{ &main_button_2,	ID_BUTTON_2,		"Ramp",				5, 85, 75, 50},
-	{ &main_button_3,	ID_BUTTON_3,		"Square",			5, 135, 75, 50},
-	{ &main_button_4,	ID_BUTTON_4,		"Pulse",			5, 185, 75, 50},
-	{ &main_button_5,	ID_BUTTON_5,		"Noise",			5, 235, 75, 50},
-	{ &s_spin_box_1,	ID_SPIN_BOX_11,		"1000 Hz",			95+15+75, 35+116/4-30/2, 75, 30},
-	{ &s_spin_box_2,	ID_SPIN_BOX_12,		"0 deg",			95+15+75, 35+116*2/4+30/2, 75, 30},
-	{ &s_spin_box_3,	ID_SPIN_BOX_13,		"5 Vpp",			95+190+75, 35+116/4-30/2, 75, 30},
-	{ &s_spin_box_4,	ID_SPIN_BOX_14,		"0 V",				95+190+75, 35+116*2/4+30/2, 75, 30},
+	{ &list_box_1,		ID_LIST_BOX_1,		"Sine",				5, 35, 75, 50},
+	{ &list_box_2,		ID_LIST_BOX_2,		"CH1",				5, 85, 75, 50},
+	{ &main_button_3,	ID_BUTTON_3,		"B",			5, 135, 75, 50},
+	{ &main_button_4,	ID_BUTTON_4,		"C",			5, 185, 75, 50},
+	{ &main_button_5,	ID_BUTTON_5,		"D",			5, 235, 75, 50},
+	{ &s_spin_box_1,	ID_SPIN_BOX_1,		"1000 Hz",			95+15+75, 35+116/4-30/2, 75, 30},
+	{ &s_spin_box_2,	ID_SPIN_BOX_2,		"0 deg",			95+15+75, 35+116*2/4+30/2, 75, 30},
+	{ &s_spin_box_3,	ID_SPIN_BOX_3,		"5 Vpp",			95+190+75, 35+116/4-30/2, 75, 30},
+	{ &s_spin_box_4,	ID_SPIN_BOX_4,		"0 V",				95+190+75, 35+116*2/4+30/2, 75, 30},
 	{ &s_label_1,		ID_LABEL_11,		"Frequency",		95+15, 35+116/4-30/2, 75, 30},
 	{ &s_label_2,		ID_LABEL_12,		"Phase",			95+15, 35+116*2/4+30/2, 75, 30},
 	{ &s_label_3,		ID_LABEL_13,		"Amplitude",		95+190, 35+116/4-30/2, 75, 30},
