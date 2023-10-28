@@ -93,11 +93,21 @@ class MVC : public c_wnd
 		int j=0;
 		for (int i = -1; i < 10; i+=2)
 		{
-			m_surface->draw_line(C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2+amp_l,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+				m_surface->draw_line(C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2+amp_l,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 			if(j%2 == 0)
-				m_surface->draw_line(C_WIDTH_S+C_WIDTH_R*i/10, C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R*(i+2)/10, C_HEIGHT_S+C_HEIGHT_R/2-amp_h,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			{
+				if(C_WIDTH_S+C_WIDTH_R*i/10 > C_WIDTH_S)
+					m_surface->draw_line(C_WIDTH_S+C_WIDTH_R*i/10, C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R*(i+2)/10, C_HEIGHT_S+C_HEIGHT_R/2-amp_h,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+				else
+					m_surface->draw_line(C_WIDTH_S, C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R/10, C_HEIGHT_S+C_HEIGHT_R/2-amp_h,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			}
 			else
-				m_surface->draw_line(C_WIDTH_S+C_WIDTH_R*i/10, C_HEIGHT_S+C_HEIGHT_R/2+amp_l, C_WIDTH_S+C_WIDTH_R*(i+2)/10, C_HEIGHT_S+C_HEIGHT_R/2+amp_l,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			{
+				if(C_WIDTH_S+C_WIDTH_R*(i+2)/10 < C_WIDTH_S+C_WIDTH_R)
+					m_surface->draw_line(C_WIDTH_S+C_WIDTH_R*i/10, C_HEIGHT_S+C_HEIGHT_R/2+amp_l, C_WIDTH_S+C_WIDTH_R*(i+2)/10, C_HEIGHT_S+C_HEIGHT_R/2+amp_l,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+				else
+					m_surface->draw_line(C_WIDTH_S+C_WIDTH_R*i/10, C_HEIGHT_S+C_HEIGHT_R/2+amp_l, C_WIDTH_S+C_WIDTH_R, C_HEIGHT_S+C_HEIGHT_R/2+amp_l,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			}
 			j++;
 		}
 		
