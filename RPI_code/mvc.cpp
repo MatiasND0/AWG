@@ -8,7 +8,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <sys/wait.h>
-#include <math.h>
+#include <cmath>
 
 #define UI_WIDTH 480
 #define UI_HEIGHT 320
@@ -55,7 +55,7 @@ class MVC : public c_wnd
 		list_box_1->add_item((char*)"Square");
 		list_box_1->add_item((char*)"Noise");
 		list_box_1->add_item((char*)"Pulse");
-		list_box_1->select_item(3);
+		list_box_1->select_item(0);
 
 		c_list_box* list_box_2 = (c_list_box*)get_wnd_ptr(ID_LIST_BOX_2);
 		list_box_2->clear_item();
@@ -63,37 +63,53 @@ class MVC : public c_wnd
 		list_box_2->add_item((char*)"CH2");
 		list_box_2->select_item(0);
 
-
 		c_button* main_button_3 = (c_button*)get_wnd_ptr(ID_BUTTON_3);
 		c_button* main_button_4 = (c_button*)get_wnd_ptr(ID_BUTTON_4);
 		c_button* main_button_5 = (c_button*)get_wnd_ptr(ID_BUTTON_5);
 
+
 		c_spin_box *c_spin_box_1 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_1);
-		c_spin_box *c_spin_box_2 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_2);
-		c_spin_box *c_spin_box_3 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_3);
-		c_spin_box *c_spin_box_4 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_4);
 		c_spin_box_1->set_value(1000);
-		c_spin_box_2->set_value(0);
-		c_spin_box_3->set_value(5);
-		c_spin_box_4->set_value(0);
+		c_spin_box_1->set_max_min(10000,50);
 		c_spin_box_1->set_on_change((WND_CALLBACK)&MVC::on_spinbox_change);
+
+		c_spin_box *c_spin_box_2 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_2);
+		c_spin_box_2->set_value(0);
+		c_spin_box_2->set_max_min(360,0);
+		c_spin_box_2->set_on_change((WND_CALLBACK)&MVC::on_spinbox_change);
+
+		c_spin_box *c_spin_box_3 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_3);
+		c_spin_box_3->set_value_digit(2);
+		c_spin_box_3->set_max_min(500,0);
+		c_spin_box_3->set_value(330);
+		c_spin_box_3->set_on_change((WND_CALLBACK)&MVC::on_spinbox_change);
+		
+		c_spin_box *c_spin_box_4 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_4);
+		c_spin_box_4->set_value(0);
+		c_spin_box_4->set_max_min(5,-5);
+		c_spin_box_4->set_on_change((WND_CALLBACK)&MVC::on_spinbox_change);
+
+
+
 
 	}
 	virtual void on_paint(void)
 	{
-		m_surface->draw_rect(4, 34, 81, 286,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//buttons rect
-		//m_surface->draw_rect(94, 34, 446, 180,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//params rect
+		m_surface->draw_rect(4, 34, 81, C_HEIGHT_S+C_HEIGHT_R+1,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//buttons rect
+		m_surface->draw_rect(94, 34, 446, 180,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//params rect
 		m_surface->draw_rect(C_WIDTH_S-1,C_HEIGHT_S-1,C_WIDTH_S+C_WIDTH_R+1,C_HEIGHT_S+C_HEIGHT_R+1,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//chart rect
 
 		draw_chart();
-		draw_sqr(C_HEIGHT_R/10*4,C_HEIGHT_R/10*2,4);
+		draw_sine(330,0);
 	}
 
 	void draw_sqr(int amp_h,int amp_l,int freq){
 		int j=0;
 		for (int i = -1; i < 10; i+=2)
 		{
-				m_surface->draw_line(C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2+amp_l,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			//vertical segments
+			m_surface->draw_line(C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2+amp_l,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			
 			if(j%2 == 0)
 			{
 				if(C_WIDTH_S+C_WIDTH_R*i/10 > C_WIDTH_S)
@@ -110,31 +126,23 @@ class MVC : public c_wnd
 			}
 			j++;
 		}
-		
-
-		//segmentos verticales
-		//m_surface->draw_line(95+88, 184, 95+88, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		//m_surface->draw_line(95+175, 184, 95+175, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		//m_surface->draw_line(95+265, 184, 95+265, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-
-		//segmentos horizontales
-		//m_surface->draw_line(95, 184, 95+88, 184,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		//m_surface->draw_line(95+88, 251, 95+87*2, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		//m_surface->draw_line(95+88*2, 184, 95+88*3, 184,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		//m_surface->draw_line(95+88*3+1, 251, 95+88*4-1, 251,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 	}
 
-	void draw_ramp(void){
-		m_surface->draw_line(95, 217, 95+(88*1)/2, 217-2*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+(88*1)/2, 217-2*34, 95+(88*3)/2, 217+1*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+(88*3)/2, 217+1*34, 95+(88*5)/2, 217-2*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+(88*5)/2, 217-2*34, 95+(88*7)/2, 217+1*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
-		m_surface->draw_line(95+(88*7)/2, 217+1*34, 94+(88*8)/2, 217-0*34, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+	void draw_ramp(int amp_h, int amp_l,float duty){
+
+		for(int i=0; i<10 ;i+=2)	
+		{	
+			m_surface->draw_line(C_WIDTH_S+C_WIDTH_R*i/10, C_HEIGHT_S+C_HEIGHT_R/2+amp_l, C_WIDTH_S+(C_WIDTH_R*(i+2*duty)/10), C_HEIGHT_S+C_HEIGHT_R/2-amp_h, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			m_surface->draw_line(C_WIDTH_S+(C_WIDTH_R*(i+2*duty)/10), C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R*(i+2)/10, C_HEIGHT_S+C_HEIGHT_R/2+amp_l, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+		}
 	}
 
-	void draw_sine(int amp, int phase){
+	void draw_sine(float amp, float phase){
+
+		amp = (amp/100)*C_HEIGHT_R/10;
+
 		for(int i=0;i<350;i++)	
-			m_surface->draw_line((C_WIDTH_S+i),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin(i*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase)),(95+i+1),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin((i+1)*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase)),GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			m_surface->draw_line((C_WIDTH_S+i),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin(i*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase)),(C_WIDTH_S+i+1),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin((i+1)*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase)),GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 	}
 	
 	void draw_noise(void){
@@ -178,11 +186,11 @@ class MVC : public c_wnd
 				break;
 			case 1://ramp
 				draw_chart();
-				draw_ramp();
+				draw_ramp(C_WIDTH_R/10*3,C_WIDTH_R/10*2,.3);
 				break;
 			case 2://square
 				draw_chart();
-				draw_sqr(50,25,10);
+				draw_sqr(C_HEIGHT_R/10*4,C_HEIGHT_R/10*4,4);
 				break;
 			case 3://pulse
 				draw_chart();
@@ -196,9 +204,27 @@ class MVC : public c_wnd
 		}
 	}
 
-	void on_spinbox_change(int ctrl_id, int param)
+	void on_spinbox_change(int ctrl_id, int value)
 	{
-		printf("Boton Apretado\n");
+		switch (ctrl_id)
+		{
+			case ID_SPIN_BOX_1:
+				printf("1\n");
+				break;
+			case ID_SPIN_BOX_2:
+				printf("2\n");
+				break;
+			case ID_SPIN_BOX_3:
+				printf("%d\n",value);
+				draw_chart();
+				draw_sine(value,0);
+				break;
+			case ID_SPIN_BOX_4:
+				printf("4\n");
+				break;
+			default:
+				break;
+		}
 	}
 };
 
