@@ -2293,6 +2293,10 @@ public:
 		}
 		m_selected_item = index;
 	}
+	int get_selected_item(void)
+	{
+		return m_selected_item;
+	}
 	
 protected:
 	virtual void pre_create_wnd()
@@ -2839,8 +2843,9 @@ class c_spin_box : public c_wnd
 {
 	friend class c_spin_button;
 public:
+	short get_cur_value() { return m_cur_value; }
 	short get_value() { return m_value; }
-	void set_value(unsigned short value) { m_value = m_cur_value = value; }
+	void set_value(unsigned short value) { m_value = m_cur_value = value;on_paint(); }
 	void set_max_min(short max, short min) { m_max = max; m_min = min; }
 	void set_step(short step) { m_step = step; }
 	short get_min() { return m_min; }
@@ -2868,11 +2873,11 @@ protected:
 		m_digit = 0;
 		m_step = 1;
 		//link arrow button position.
-		c_rect rect;
-		get_wnd_rect(rect);
-		m_bt_down.m_spin_box = m_bt_up.m_spin_box = this;
-		m_bt_up.connect(m_parent, ID_BT_ARROW_UP, "+", (rect.m_left + rect.width() * 2 / 3), rect.m_top, (rect.width() / 3), (rect.height() / 2));
-		m_bt_down.connect(m_parent, ID_BT_ARROW_DOWN, "-", (rect.m_left + rect.width() * 2 / 3), (rect.m_top + rect.height() / 2), (rect.width() / 3), (rect.height() / 2));
+		//c_rect rect;
+		//get_wnd_rect(rect);
+		//m_bt_down.m_spin_box = m_bt_up.m_spin_box = this;
+		//m_bt_up.connect(m_parent, ID_BT_ARROW_UP, "+", (rect.m_left + rect.width() * 2 / 3), rect.m_top, (rect.width() / 3), (rect.height() / 2));
+		//m_bt_down.connect(m_parent, ID_BT_ARROW_DOWN, "-", (rect.m_left + rect.width() * 2 / 3), (rect.m_top + rect.height() / 2), (rect.width() / 3), (rect.height() / 2));
 	}
 	void on_arrow_up_bt_click()
 	{

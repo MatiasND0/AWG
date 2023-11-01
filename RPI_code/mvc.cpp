@@ -71,23 +71,19 @@ class MVC : public c_wnd
 		c_spin_box *c_spin_box_1 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_1);
 		c_spin_box_1->set_value(1000);
 		c_spin_box_1->set_max_min(10000,50);
-		c_spin_box_1->set_on_change((WND_CALLBACK)&MVC::on_spinbox_change);
 
 		c_spin_box *c_spin_box_2 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_2);
 		c_spin_box_2->set_value(0);
 		c_spin_box_2->set_max_min(360,0);
-		c_spin_box_2->set_on_change((WND_CALLBACK)&MVC::on_spinbox_change);
 
 		c_spin_box *c_spin_box_3 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_3);
 		c_spin_box_3->set_value_digit(2);
 		c_spin_box_3->set_max_min(500,0);
 		c_spin_box_3->set_value(330);
-		c_spin_box_3->set_on_change((WND_CALLBACK)&MVC::on_spinbox_change);
 		
 		c_spin_box *c_spin_box_4 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_4);
 		c_spin_box_4->set_value(0);
 		c_spin_box_4->set_max_min(5,-5);
-		c_spin_box_4->set_on_change((WND_CALLBACK)&MVC::on_spinbox_change);
 
 
 
@@ -100,7 +96,7 @@ class MVC : public c_wnd
 		m_surface->draw_rect(C_WIDTH_S-1,C_HEIGHT_S-1,C_WIDTH_S+C_WIDTH_R+1,C_HEIGHT_S+C_HEIGHT_R+1,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//chart rect
 
 		draw_chart();
-		draw_sine(330,0);
+		draw_sine(330,0,0);
 	}
 
 	void draw_sqr(int amp_h,int amp_l,int freq){
@@ -137,12 +133,12 @@ class MVC : public c_wnd
 		}
 	}
 
-	void draw_sine(float amp, float phase){
+	void draw_sine(float amp, float phase, float offset){
 
 		amp = (amp/100)*C_HEIGHT_R/10;
 
 		for(int i=0;i<350;i++)	
-			m_surface->draw_line((C_WIDTH_S+i),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin(i*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase)),(C_WIDTH_S+i+1),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin((i+1)*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase)),GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			m_surface->draw_line((C_WIDTH_S+i),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin(i*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase))-offset,(C_WIDTH_S+i+1),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin((i+1)*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase))-offset,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 	}
 	
 	void draw_noise(void){
@@ -182,7 +178,7 @@ class MVC : public c_wnd
 		{
 			case 0://sine
 				draw_chart();
-				draw_sine(30,3.14/2);
+				draw_sine(30,3.14/2,0);
 				break;
 			case 1://ramp
 				draw_chart();
@@ -203,29 +199,73 @@ class MVC : public c_wnd
 				break;
 		}
 	}
+	public:
 
-	void on_spinbox_change(int ctrl_id, int value)
+	void set_spinbox_value(bool dir, short ID)
 	{
-		switch (ctrl_id)
+		c_list_box *c_list_box_1 = (c_list_box*)get_wnd_ptr(ID_LIST_BOX_1);
+
+		c_spin_box *c_spin_box_1 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_1);
+		c_spin_box *c_spin_box_2 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_2);
+		c_spin_box *c_spin_box_3 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_3);
+		c_spin_box *c_spin_box_4 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_4);
+		
+		int phase = c_spin_box_2->get_cur_value();
+		int amp = c_spin_box_3->get_cur_value();
+		int offset = c_spin_box_4->get_cur_value();
+
+
+		switch (ID)
 		{
-			case ID_SPIN_BOX_1:
-				printf("1\n");
-				break;
 			case ID_SPIN_BOX_2:
-				printf("2\n");
+				if(dir == 1 && phase < 360)
+					phase += 10;
+				else
+					if(dir == 0 && phase > 0)
+						phase -= 10;
+				c_spin_box_2->set_value(phase);
 				break;
 			case ID_SPIN_BOX_3:
-				printf("%d\n",value);
-				draw_chart();
-				draw_sine(value,0);
+				if(dir == 1 && amp < 500)
+					amp += 10;
+				else
+					if(dir == 0 && amp > 0)
+						amp -= 10;
+				c_spin_box_3->set_value(amp);
 				break;
 			case ID_SPIN_BOX_4:
-				printf("4\n");
+				if(dir == 1 && offset < 500)
+					offset += 10;
+				else
+					if(dir == 0 && offset > 0)
+						offset -= 10;
+				c_spin_box_4->set_value(offset);
 				break;
+			
 			default:
 				break;
 		}
+
+		draw_chart();
+		switch (c_list_box_1->get_selected_item())
+		{
+		case 0:
+			draw_sine(amp,phase*3.14/180,offset);
+			break;
+		case 1:
+			draw_ramp(30,30,.5);
+			break;
+		case 2:
+			draw_sqr(30,30,5);
+			break;
+		case 3:
+			draw_noise();
+			break;
+		default:
+			break;
+		}
 	}
+
 };
 
 static MVC mvc;
@@ -310,6 +350,30 @@ void mainLoop(void* phy_fb, int width, int height, int color_bytes){
 				if (strcmp("enter",buffer)==0){
 					mvc.on_navigate(NAVIGATION_KEY(2));
 					printf("haciendo enter\n");
+				}
+				if (strcmp("inc_ph",buffer)==0){
+					mvc.set_spinbox_value(1,ID_SPIN_BOX_2);
+					printf("Incrementando fase\n");
+				}
+				if (strcmp("dec_ph",buffer)==0){
+					mvc.set_spinbox_value(0,ID_SPIN_BOX_2);
+					printf("Decrementando fase\n");
+				}
+				if (strcmp("inc_amp",buffer)==0){
+					mvc.set_spinbox_value(1,ID_SPIN_BOX_3);
+					printf("Incrementando amplitud\n");
+				}
+				if (strcmp("dec_amp",buffer)==0){
+					mvc.set_spinbox_value(0,ID_SPIN_BOX_3);
+					printf("Decrementando amplitud\n");
+				}
+				if (strcmp("inc_off",buffer)==0){
+					mvc.set_spinbox_value(1,ID_SPIN_BOX_4);
+					printf("Incrementando fase\n");
+				}
+				if (strcmp("dec_off",buffer)==0){
+					mvc.set_spinbox_value(0,ID_SPIN_BOX_4);
+					printf("Decrementando fase\n");
 				}
 		}
 		
