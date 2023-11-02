@@ -1374,6 +1374,25 @@ rule C_STATIC_LIBRARY_LINKER____idf_main_
 #############################################
 # Rule for compiling C files.
 
+rule C_COMPILER____idf_dac_cont_func_
+  depfile = $DEP_FILE
+  deps = gcc
+  command = /home/matiasnd/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER____idf_dac_cont_func_
+  command = $PRE_LINK && /home/matiasnd/.espressif/tools/cmake/3.24.0/bin/cmake -E rm -f $TARGET_FILE && /home/matiasnd/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/matiasnd/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
 rule C_COMPILER____idf_dac_cos_func_
   depfile = $DEP_FILE
   deps = gcc
@@ -1391,10 +1410,29 @@ rule C_STATIC_LIBRARY_LINKER____idf_dac_cos_func_
 
 
 #############################################
+# Rule for compiling C files.
+
+rule C_COMPILER____idf_udp_com_
+  depfile = $DEP_FILE
+  deps = gcc
+  command = /home/matiasnd/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C static library.
+
+rule C_STATIC_LIBRARY_LINKER____idf_udp_com_
+  command = $PRE_LINK && /home/matiasnd/.espressif/tools/cmake/3.24.0/bin/cmake -E rm -f $TARGET_FILE && /home/matiasnd/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/matiasnd/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib $TARGET_FILE && $POST_BUILD
+  description = Linking C static library $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /home/matiasnd/.espressif/tools/cmake/3.24.0/bin/cmake --regenerate-during-build -S/home/matiasnd/esp-workspace/signal_gen_proy -B/home/matiasnd/esp-workspace/signal_gen_proy/build
+  command = /home/matiasnd/.espressif/tools/cmake/3.24.0/bin/cmake --regenerate-during-build -S/home/matiasnd/awg/ESP_code -B/home/matiasnd/awg/ESP_code/build
   description = Re-running CMake...
   generator = 1
 

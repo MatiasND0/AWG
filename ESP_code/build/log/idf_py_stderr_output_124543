@@ -1,0 +1,219 @@
+[0;33m--- esp-idf-monitor 1.3.1 on /dev/ttyUSB0 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d6e03: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x4000c2e0: memcpy in ROM
+[0m
+[0;33m0x4000c2f6: memcpy in ROM
+[0m
+[0;33m0x400d6e00: dac_continuous_disable at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:387 (discriminator 2)
+[0m
+[0;33m0x400d59b5: example_dac_continuous_by_dma at /home/matiasnd/awg/ESP_code/components/dac_cont_func/dac_cont_func.c:111
+[0m
+[0;33m0x400d566a: app_main at /home/matiasnd/awg/ESP_code/main/main.c:57
+[0m
+[0;33m0x400e6628: main_task at /home/matiasnd/esp/esp-idf/components/freertos/app_startup.c:208 (discriminator 13)
+[0m
+[0;33m0x400867c1: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0m

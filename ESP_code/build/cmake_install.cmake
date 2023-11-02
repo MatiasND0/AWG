@@ -1,4 +1,4 @@
-# Install script for directory: /home/matiasnd/esp-workspace/signal_gen_proy
+# Install script for directory: /home/matiasnd/awg/ESP_code
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/matiasnd/esp-workspace/signal_gen_proy/build/esp-idf/cmake_install.cmake")
+  include("/home/matiasnd/awg/ESP_code/build/esp-idf/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/matiasnd/esp-workspace/signal_gen_proy/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/matiasnd/awg/ESP_code/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

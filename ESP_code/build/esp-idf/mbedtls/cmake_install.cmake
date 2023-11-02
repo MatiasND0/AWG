@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/matiasnd/esp-workspace/signal_gen_proy/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake")
+  include("/home/matiasnd/awg/ESP_code/build/esp-idf/mbedtls/mbedtls/cmake_install.cmake")
 endif()
 

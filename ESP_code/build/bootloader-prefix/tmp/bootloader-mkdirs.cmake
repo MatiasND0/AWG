@@ -5,18 +5,18 @@ cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
   "/home/matiasnd/esp/esp-idf/components/bootloader/subproject"
-  "/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader"
-  "/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix"
-  "/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/tmp"
-  "/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src/bootloader-stamp"
-  "/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src"
-  "/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src/bootloader-stamp"
+  "/home/matiasnd/awg/ESP_code/build/bootloader"
+  "/home/matiasnd/awg/ESP_code/build/bootloader-prefix"
+  "/home/matiasnd/awg/ESP_code/build/bootloader-prefix/tmp"
+  "/home/matiasnd/awg/ESP_code/build/bootloader-prefix/src/bootloader-stamp"
+  "/home/matiasnd/awg/ESP_code/build/bootloader-prefix/src"
+  "/home/matiasnd/awg/ESP_code/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/home/matiasnd/awg/ESP_code/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/home/matiasnd/esp-workspace/signal_gen_proy/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/home/matiasnd/awg/ESP_code/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

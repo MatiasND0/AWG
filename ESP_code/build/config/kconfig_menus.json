@@ -4561,6 +4561,46 @@
                 "range": null,
                 "title": "WiFi Password",
                 "type": "string"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "<choice EXAMPLE_DAC_CONTINUOUS_MODE>",
+                        "help": null,
+                        "id": "EXAMPLE_DAC_CONTINUOUS_BY_DMA",
+                        "name": "EXAMPLE_DAC_CONTINUOUS_BY_DMA",
+                        "range": null,
+                        "title": "By DMA",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "<choice EXAMPLE_DAC_CONTINUOUS_MODE>",
+                        "help": null,
+                        "id": "EXAMPLE_DAC_CONTINUOUS_BY_TIMER",
+                        "name": "EXAMPLE_DAC_CONTINUOUS_BY_TIMER",
+                        "range": null,
+                        "title": "By Timer",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "help": "DAC output continuous data by DMA or timer",
+                "id": "example-configuration-select-dac-continuous-example-mode",
+                "name": "EXAMPLE_DAC_CONTINUOUS_MODE",
+                "title": "Select DAC continuous example mode",
+                "type": "choice"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "The waveforms will switch every several seconds,\nthis configuration is to specify the switching period",
+                "id": "EXAMPLE_WAVE_PERIOD_SEC",
+                "name": "EXAMPLE_WAVE_PERIOD_SEC",
+                "range": null,
+                "title": "Period of switching the waveform (Unit: Sec)",
+                "type": "int"
             }
         ],
         "depends_on": null,

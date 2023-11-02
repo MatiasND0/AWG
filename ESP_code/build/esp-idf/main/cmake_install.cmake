@@ -1,4 +1,4 @@
-# Install script for directory: /home/matiasnd/esp-workspace/signal_gen_proy/main
+# Install script for directory: /home/matiasnd/awg/ESP_code/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

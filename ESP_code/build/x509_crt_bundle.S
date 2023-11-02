@@ -1,4 +1,4 @@
-/* * Data converted from /home/matiasnd/esp-workspace/signal_gen_proy/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /home/matiasnd/awg/ESP_code/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded
