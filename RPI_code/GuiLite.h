@@ -2248,8 +2248,8 @@ public:
 		get_screen_rect(rect);
 		if (m_str)
 		{
-			m_surface->fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, GL_RGB(0, 0, 0), m_z_order);
-			c_word::draw_string_in_rect(m_surface, m_z_order, m_str, rect, m_font, m_font_color, GL_RGB(0, 0, 0), ALIGN_LEFT | ALIGN_VCENTER);
+			m_surface->fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, c_theme::get_color(COLOR_WND_NORMAL), m_z_order);
+			c_word::draw_string_in_rect(m_surface, m_z_order, m_str, rect, m_font, m_font_color, c_theme::get_color(COLOR_WND_NORMAL), ALIGN_LEFT | ALIGN_VCENTER);
 		}
 	}
 protected:

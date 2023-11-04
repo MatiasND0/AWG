@@ -8,16 +8,21 @@
 #include <fcntl.h>
 #include <string.h>
 #include <sys/wait.h>
+#include <cstdint>
 #include <cmath>
 
 #define UI_WIDTH 480
 #define UI_HEIGHT 320
+
+#define BORDER_COLOR 60,60,61
 
 //charts
 #define C_WIDTH_S 	95		//Start
 #define C_HEIGHT_S 	150		//Start
 #define C_WIDTH_R 	350		//Relative
 #define C_HEIGHT_R 	140		//Relative
+
+uint8_t tx_buff[9] = {0,0,0,0,0,0,0,0,0};
 
 enum WND_ID
 {
@@ -69,20 +74,20 @@ class MVC : public c_wnd
 
 
 		c_spin_box *c_spin_box_1 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_1);
-		c_spin_box_1->set_value(1000);
-		c_spin_box_1->set_max_min(10000,50);
+		c_spin_box_1->set_value(5000);
+		c_spin_box_1->set_max_min(5000,50);
 
 		c_spin_box *c_spin_box_2 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_2);
-		c_spin_box_2->set_value(0);
+		c_spin_box_2->set_value(5000);
 		c_spin_box_2->set_max_min(360,0);
 
 		c_spin_box *c_spin_box_3 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_3);
 		c_spin_box_3->set_value_digit(2);
-		c_spin_box_3->set_max_min(500,0);
+		c_spin_box_3->set_max_min(330,0);
 		c_spin_box_3->set_value(330);
 		
 		c_spin_box *c_spin_box_4 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_4);
-		c_spin_box_4->set_value(0);
+		c_spin_box_4->set_value(165);
 		c_spin_box_4->set_max_min(5,-5);
 
 
@@ -91,9 +96,10 @@ class MVC : public c_wnd
 	}
 	virtual void on_paint(void)
 	{
-		m_surface->draw_rect(4, 34, 81, C_HEIGHT_S+C_HEIGHT_R+1,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//buttons rect
-		m_surface->draw_rect(94, 34, 446, 180,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//params rect
-		m_surface->draw_rect(C_WIDTH_S-1,C_HEIGHT_S-1,C_WIDTH_S+C_WIDTH_R+1,C_HEIGHT_S+C_HEIGHT_R+1,GL_RGB(255, 255, 255),Z_ORDER_LEVEL_2);//chart rect
+		m_surface->fill_rect(0, 0, UI_WIDTH, UI_HEIGHT,GL_RGB(27, 27, 27),Z_ORDER_LEVEL_2);
+		m_surface->draw_rect(4, 34, 81, C_HEIGHT_S+C_HEIGHT_R+1,GL_RGB(60,60,60),Z_ORDER_LEVEL_2);//buttons rect
+		m_surface->draw_rect(94, 34, 446, 180,GL_RGB(60,60,60),Z_ORDER_LEVEL_2);//params rect
+		m_surface->draw_rect(C_WIDTH_S-1,C_HEIGHT_S-1,C_WIDTH_S+C_WIDTH_R+1,C_HEIGHT_S+C_HEIGHT_R+1,GL_RGB(60,60,60),Z_ORDER_LEVEL_2);//chart rect
 
 		draw_chart();
 		draw_sine(330,0,0);
@@ -178,7 +184,7 @@ class MVC : public c_wnd
 		{
 			case 0://sine
 				draw_chart();
-				draw_sine(30,3.14/2,0);
+				draw_sine(330,3.14/2,0);
 				break;
 			case 1://ramp
 				draw_chart();
@@ -200,6 +206,32 @@ class MVC : public c_wnd
 		}
 	}
 	public:
+
+	void get_values(void)
+	{
+		c_list_box *c_list_box_1 = (c_list_box*)get_wnd_ptr(ID_LIST_BOX_1);
+		c_list_box *c_list_box_2 = (c_list_box*)get_wnd_ptr(ID_LIST_BOX_2);
+
+		c_spin_box *c_spin_box_1 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_1);
+		c_spin_box *c_spin_box_2 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_2);
+		c_spin_box *c_spin_box_3 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_3);
+		c_spin_box *c_spin_box_4 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_4);
+
+		tx_buff[0] = c_list_box_1->get_selected_item();							//Wave
+		tx_buff[1] = c_list_box_2->get_selected_item();							//CHN
+
+		tx_buff[2] = (uint8_t)((c_spin_box_1->get_cur_value() >> 8) & 0xFF); 	//Freq MSB
+		tx_buff[3] = (uint8_t)(c_spin_box_1->get_cur_value() & 0xFF);			//Freq LSB
+
+		tx_buff[4] = c_spin_box_3->get_cur_value()*255/330;						//Amplitude High
+		tx_buff[5] = 0x00;//c_spin_box_4->get_cur_value()/255;					//Amplitude Low
+		
+		tx_buff[6] = c_spin_box_4->get_cur_value()*255/330;						//Offset
+
+		tx_buff[7] = (uint8_t)((c_spin_box_2->get_cur_value() >> 8) & 0xFF); 	//Freq MSB
+		tx_buff[8] = (uint8_t)(c_spin_box_2->get_cur_value() & 0xFF);			//Freq LSB
+
+	}
 
 	void set_spinbox_value(bool dir, short ID)
 	{
@@ -280,9 +312,9 @@ WND_TREE main_window[] =
 {
 	{ &list_box_1,		ID_LIST_BOX_1,		"Sine",				5, 35, 75, 50},
 	{ &list_box_2,		ID_LIST_BOX_2,		"CH1",				5, 85, 75, 50},
-	{ &main_button_3,	ID_BUTTON_3,		"B",			5, 135, 75, 50},
-	{ &main_button_4,	ID_BUTTON_4,		"C",			5, 185, 75, 50},
-	{ &main_button_5,	ID_BUTTON_5,		"D",			5, 235, 75, 50},
+	{ &main_button_3,	ID_BUTTON_3,		"B",				5, 135, 75, 50},
+	{ &main_button_4,	ID_BUTTON_4,		"C",				5, 185, 75, 50},
+	{ &main_button_5,	ID_BUTTON_5,		"D",				5, 235, 75, 50},
 	{ &s_spin_box_1,	ID_SPIN_BOX_1,		"1000 Hz",			95+15+75, 35+116/4-30/2, 75, 30},
 	{ &s_spin_box_2,	ID_SPIN_BOX_2,		"0 deg",			95+15+75, 35+116*2/4+30/2, 75, 30},
 	{ &s_spin_box_3,	ID_SPIN_BOX_3,		"5 Vpp",			95+190+75, 35+116/4-30/2, 75, 30},
@@ -299,10 +331,10 @@ void load_resource()
 {
 	c_theme::add_font(FONT_DEFAULT, &Arial_16B);
 	c_theme::add_color(COLOR_WND_FONT, GL_RGB(255, 255, 243));
-	c_theme::add_color(COLOR_WND_NORMAL, GL_RGB(0, 0, 0));
-	c_theme::add_color(COLOR_WND_PUSHED, GL_RGB(255, 255, 255));
-	c_theme::add_color(COLOR_WND_FOCUS, GL_RGB(25, 25, 25));
-	c_theme::add_color(COLOR_WND_BORDER, GL_RGB(255, 255, 255));
+	c_theme::add_color(COLOR_WND_NORMAL, GL_RGB(27,27,27));
+	c_theme::add_color(COLOR_WND_PUSHED, GL_RGB(60,60,60));
+	c_theme::add_color(COLOR_WND_FOCUS, GL_RGB(75, 75, 75));
+	c_theme::add_color(COLOR_WND_BORDER, GL_RGB(60,60,60));
 	
 }
 
@@ -339,9 +371,12 @@ void mainLoop(void* phy_fb, int width, int height, int color_bytes){
 		int rec = read(fd, buffer, sizeof(buffer));
 		if (rec>0){
 			buffer[rec]=0;
+				mvc.get_values();
 				if (strcmp("adelante",buffer)==0){
 					mvc.on_navigate(NAVIGATION_KEY(0));
 					printf("moviendo adelante\n");
+					for (int i = 0; i < 9; i++)
+						printf("%x\n",(tx_buff[i]));
 				}
 				if (strcmp("atras",buffer)==0){
 					mvc.on_navigate(NAVIGATION_KEY(1));
@@ -375,6 +410,7 @@ void mainLoop(void* phy_fb, int width, int height, int color_bytes){
 					mvc.set_spinbox_value(0,ID_SPIN_BOX_4);
 					printf("Decrementando fase\n");
 				}
+
 		}
 		
 	}

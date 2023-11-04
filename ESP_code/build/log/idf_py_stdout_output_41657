@@ -1,0 +1,801 @@
+q: 160000000 Hz[0m
+[0;32mI (229) �ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7140
+load:0x40078000,len:15696
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3944
+entry 0x4008065c
+[0;32mI (31) boot: ESP-IDF v5.2-dev-3318-g8fc8f3f479-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Nov  2 2023 17:27:40[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (86) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (94) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c5c8h ( 50632) map[0m
+[0;32mI (125) esp_image: segment 1: paddr=0001c5f0 vaddr=3ffb0000 size=021bch (  8636) load[0m
+[0;32mI (128) esp_image: segment 2: paddr=0001e7b4 vaddr=40080000 size=01864h (  6244) load[0m
+[0;32mI (133) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1c39ch (115612) map[0m
+[0;32mI (181) esp_image: segment 4: paddr=0003c3c4 vaddr=40081864 size=0c400h ( 50176) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (220) cpu_start: Multicore app[0m
+[0;32mI (229) cpu_start: Pro cpu start user code[0m
+[0;32mI (229) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (229) cpu_start: Application information:[0m
+[0;32mI (232) cpu_start: Project name:     app-template[0m
+[0;32mI (238) cpu_start: App version:      3b2d56c-dirty[0m
+[0;32mI (243) cpu_start: Compile time:     Nov  2 2023 21:53:43[0m
+[0;32mI (249) cpu_start: ELF file SHA256:  2e1666508...[0m
+[0;32mI (255) cpu_start: ESP-IDF:          v5.2-dev-3318-g8fc8f3f479-dirty[0m
+[0;32mI (262) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (266) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (271) cpu_start: Chip rev:         v3.0[0m
+[0;32mI (276) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (283) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (289) heap_init: At 3FFB30B0 len 0002CF50 (179 KiB): DRAM[0m
+[0;32mI (295) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (302) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (308) heap_init: At 4008DC64 len 0001239C (72 KiB): IRAM[0m
+[0;32mI (316) spi_flash: detected chip: generic[0m
+[0;32mI (319) spi_flash: flash io: dio[0m
+[0;33mW (323) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (336) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (347) main_task: Started on CPU0[0m
+[0;32mI (357) main_task: Calling app_main()[0m
+[0;32mI (357) i2c: i2c started[0m
+[0;32mI (5967) i2c: x is :a[0m
+[0;32mI (5967) i2c: [0m
+[0;32mI (5967) i2c: Wave: 120[0m
+[0;32mI (5967) i2c: CH: 32[0m
+[0;32mI (5967) i2c: Frequency: 8297[0m
+[0;32mI (5977) i2c: Amplitude High: 115[0m
+[0;32mI (5977) i2c: Amplitude Low: 32[0m
+[0;32mI (5987) i2c: Offset: 58[0m
+[0;32mI (5987) i2c: Offset: 24832[0m
+[0;32mI (6787) i2c: x is :b[0m
+[0;32mI (6787) i2c: [0m
+[0;32mI (6787) i2c: Wave: 120[0m
+[0;32mI (6787) i2c: CH: 32[0m
+[0;32mI (6787) i2c: Frequency: 8297[0m
+[0;32mI (6787) i2c: Amplitude High: 115[0m
+[0;32mI (6787) i2c: Amplitude Low: 32[0m
+[0;32mI (6797) i2c: Offset: 58[0m
+[0;32mI (6797) i2c: Offset: 25088[0m
+[0;32mI (7197) i2c: x is :c[0m
+[0;32mI (7197) i2c: [0m
+[0;32mI (7197) i2c: Wave: 120[0m
+[0;32mI (7197) i2c: CH: 32[0m
+[0;32mI (7197) i2c: Frequency: 8297[0m
+[0;32mI (7197) i2c: Amplitude High: 115[0m
+[0;32mI (7197) i2c: Amplitude Low: 32[0m
+[0;32mI (7207) i2c: Offset: 58[0m
+[0;32mI (7207) i2c: Offset: 25344[0m
+[0;32mI (7577) i2c: x is :d[0m
+[0;32mI (7577) i2c: [0m
+[0;32mI (7577) i2c: Wave: 120[0m
+[0;32mI (7577) i2c: CH: 32[0m
+[0;32mI (7577) i2c: Frequency: 8297[0m
+[0;32mI (7577) i2c: Amplitude High: 115[0m
+[0;32mI (7577) i2c: Amplitude Low: 32[0m
+[0;32mI (7587) i2c: Offset: 58[0m
+[0;32mI (7587) i2c: Offset: 25600[0m
+[0;32mI (7977) i2c: x is :e[0m
+[0;32mI (7977) i2c: [0m
+[0;32mI (7977) i2c: Wave: 120[0m
+[0;32mI (7977) i2c: CH: 32[0m
+[0;32mI (7977) i2c: Frequency: 8297[0m
+[0;32mI (7977) i2c: Amplitude High: 115[0m
+[0;32mI (7977) i2c: Amplitude Low: 32[0m
+[0;32mI (7987) i2c: Offset: 58[0m
+[0;32mI (7987) i2c: Offset: 25856[0m
+[0;32mI (8797) i2c: x[0m
+[0;32mI (8797) i2c: [0m
+[0;32mI (8797) i2c: Wave: 120[0m
+[0;32mI (8797) i2c: CH: 16[0m
+[0;32mI (8797) i2c: Frequency: 4096[0m
+[0;32mI (8797) i2c: Amplitude High: 0[0m
+[0;32mI (8797) i2c: Amplitude Low: 0[0m
+[0;32mI (8807) i2c: Offset: 0[0m
+[0;32mI (8807) i2c: Offset: 0[0m
+[0;32mI (9207) i2c: x is :g[0m
+[0;32mI (9207) i2c: [0m
+[0;32mI (9207) i2c: Wave: 120[0m
+[0;32mI (9207) i2c: CH: 32[0m
+[0;32mI (9207) i2c: Frequency: 8297[0m
+[0;32mI (9207) i2c: Amplitude High: 115[0m
+[0;32mI (9207) i2c: Amplitude Low: 32[0m
+[0;32mI (9217) i2c: Offset: 58[0m
+[0;32mI (9217) i2c: Offset: 26368[0m
+[0;32mI (9577) i2c: x is :h[0m
+[0;32mI (9577) i2c: [0m
+[0;32mI (9577) i2c: Wave: 120[0m
+[0;32mI (9577) i2c: CH: 32[0m
+[0;32mI (9577) i2c: Frequency: 8297[0m
+[0;32mI (9577) i2c: Amplitude High: 115[0m
+[0;32mI (9577) i2c: Amplitude Low: 32[0m
+[0;32mI (9587) i2c: Offset: 58[0m
+[0;32mI (9587) i2c: Offset: 26624[0m
+[0;32mI (9977) i2c: x is :i[0m
+[0;32mI (9977) i2c: [0m
+[0;32mI (9977) i2c: Wave: 120[0m
+[0;32mI (9977) i2c: CH: 32[0m
+[0;32mI (9977) i2c: Frequency: 8297[0m
+[0;32mI (9977) i2c: Amplitude High: 115[0m
+[0;32mI (9987) i2c: Amplitude Low: 32[0m
+[0;32mI (9987) i2c: Offset: 58[0m
+[0;32mI (9987) i2c: Offset: 26880[0m
+[0;32mI (10797) i2c: x is :j[0m
+[0;32mI (10797) i2c: [0m
+[0;32mI (10797) i2c: Wave: 120[0m
+[0;32mI (10797) i2c: CH: 32[0m
+[0;32mI (10797) i2c: Frequency: 8297[0m
+[0;32mI (10797) i2c: Amplitude High: 115[0m
+[0;32mI (10797) i2c: Amplitude Low: 32[0m
+[0;32mI (10807) i2c: Offset: 58[0m
+[0;32mI (10807) i2c: Offset: 27136[0m
+[0;32mI (11207) i2c: x is :k[0m
+[0;32mI (11207) i2c: [0m
+[0;32mI (11207) i2c: Wave: 120[0m
+[0;32mI (11207) i2c: CH: 32[0m
+[0;32mI (11207) i2c: Frequency: 8297[0m
+[0;32mI (11207) i2c: Amplitude High: 115[0m
+[0;32mI (11207) i2c: Amplitude Low: 32[0m
+[0;32mI (11217) i2c: Offset: 58[0m
+[0;32mI (11217) i2c: Offset: 27392[0m
+[0;32mI (11577) i2c: x is :l[0m
+[0;32mI (11577) i2c: [0m
+[0;32mI (11577) i2c: Wave: 120[0m
+[0;32mI (11577) i2c: CH: 32[0m
+[0;32mI (11577) i2c: Frequency: 8297[0m
+[0;32mI (11577) i2c: Amplitude High: 115[0m
+[0;32mI (11577) i2c: Amplitude Low: 32[0m
+[0;32mI (11587) i2c: Offset: 58[0m
+[0;32mI (11587) i2c: Offset: 27648[0m
+[0;32mI (11977) i2c: <[0m
+[0;32mI (11977) i2c: [0m
+[0;32mI (11977) i2c: Wave: 60[0m
+[0;32mI (11977) i2c: CH: 0[0m
+[0;32mI (11977) i2c: Frequency: 0[0m
+[0;32mI (11987) i2c: Amplitude High: 0[0m
+[0;32mI (11987) i2c: Amplitude Low: 0[0m
+[0;32mI (11987) i2c: Offset: 0[0m
+[0;32mI (11997) i2c: Offset: 0[0m
+[0;32mI (12797) i2c: x is :n[0m
+[0;32mI (12797) i2c: [0m
+[0;32mI (12797) i2c: Wave: 120[0m
+[0;32mI (12797) i2c: CH: 32[0m
+[0;32mI (12797) i2c: Frequency: 8297[0m
+[0;32mI (12797) i2c: Amplitude High: 115[0m
+[0;32mI (12797) i2c: Amplitude Low: 32[0m
+[0;32mI (12807) i2c: Offset: 58[0m
+[0;32mI (12807) i2c: Offset: 28160[0m
+[0;32mI (13207) i2c: <[0m
+[0;32mI (13207) i2c: [0m
+[0;32mI (13207) i2c: Wave: 60[0m
+[0;32mI (13207) i2c: CH: 0[0m
+[0;32mI (13207) i2c: Frequency: 0[0m
+[0;32mI (13207) i2c: Amplitude High: 0[0m
+[0;32mI (13207) i2c: Amplitude Low: 0[0m
+[0;32mI (13217) i2c: Offset: 0[0m
+[0;32mI (13217) i2c: Offset: 0[0m
+[0;32mI (13577) i2c: x is :p[0m
+[0;32mI (13577) i2c: [0m
+[0;32mI (13577) i2c: Wave: 120[0m
+[0;32mI (13577) i2c: CH: 32[0m
+[0;32mI (13577) i2c: Frequency: 8297[0m
+[0;32mI (13577) i2c: Amplitude High: 115[0m
+[0;32mI (13577) i2c: Amplitude Low: 32[0m
+[0;32mI (13587) i2c: Offset: 58[0m
+[0;32mI (13587) i2c: Offset: 28672[0m
+[0;32mI (14787) i2c: x is :r[0m
+[0;32mI (14787) i2c: [0m
+[0;32mI (14787) i2c: Wave: 120[0m
+[0;32mI (14787) i2c: CH: 32[0m
+[0;32mI (14787) i2c: Frequency: 8297[0m
+[0;32mI (14787) i2c: Amplitude High: 115[0m
+[0;32mI (14787) i2c: Amplitude Low: 32[0m
+[0;32mI (14797) i2c: Offset: 58[0m
+[0;32mI (14797) i2c: Offset: 29184[0m
+[0;32mI (15197) i2c: x is :s[0m
+[0;32mI (15197) i2c: [0m
+[0;32mI (15197) i2c: Wave: 120[0m
+[0;32mI (15197) i2c: CH: 32[0m
+[0;32mI (15197) i2c: Frequency: 8297[0m
+[0;32mI (15197) i2c: Amplitude High: 115[0m
+[0;32mI (15197) i2c: Amplitude Low: 32[0m
+[0;32mI (15207) i2c: Offset: 58[0m
+[0;32mI (15207) i2c: Offset: 29440[0m
+[0;32mI (15587) i2c: x is :t[0m
+[0;32mI (15587) i2c: [0m
+[0;32mI (15587) i2c: Wave: 120[0m
+[0;32mI (15587) i2c: CH: 32[0m
+[0;32mI (15587) i2c: Frequency: 8297[0m
+[0;32mI (15587) i2c: Amplitude High: 115[0m
+[0;32mI (15587) i2c: Amplitude Low: 32[0m
+[0;32mI (15597) i2c: Offset: 58[0m
+[0;32mI (15597) i2c: Offset: 29696[0m
+[0;32mI (15987) i2c: x is :u[0m
+[0;32mI (15987) i2c: [0m
+[0;32mI (15987) i2c: Wave: 120[0m
+[0;32mI (15987) i2c: CH: 32[0m
+[0;32mI (15987) i2c: Frequency: 8297[0m
+[0;32mI (15987) i2c: Amplitude High: 115[0m
+[0;32mI (15997) i2c: Amplitude Low: 32[0m
+[0;32mI (15997) i2c: Offset: 58[0m
+[0;32mI (15997) i2c: Offset: 29952[0m
+[0;32mI (16807) i2c: x is :v[0m
+[0;32mI (16807) i2c: [0m
+[0;32mI (16807) i2c: Wave: 120[0m
+[0;32mI (16807) i2c: CH: 32[0m
+[0;32mI (16807) i2c: Frequency: 8297[0m
+[0;32mI (16807) i2c: Amplitude High: 115[0m
+[0;32mI (16807) i2c: Amplitude Low: 32[0m
+[0;32mI (16817) i2c: Offset: 58[0m
+[0;32mI (16817) i2c: Offset: 30208[0m
+[0;32mI (17217) i2c: x is :w[0m
+[0;32mI (17217) i2c: [0m
+[0;32mI (17217) i2c: Wave: 120[0m
+[0;32mI (17217) i2c: CH: 32[0m
+[0;32mI (17217) i2c: Frequency: 8297[0m
+[0;32mI (17217) i2c: Amplitude High: 115[0m
+[0;32mI (17217) i2c: Amplitude Low: 32[0m
+[0;32mI (17227) i2c: Offset: 58[0m
+[0;32mI (17227) i2c: Offset: 30464[0m
+[0;32mI (17587) i2c: x is :x[0m
+[0;32mI (17587) i2c: [0m
+[0;32mI (17587) i2c: Wave: 120[0m
+[0;32mI (17587) i2c: CH: 32[0m
+[0;32mI (17587) i2c: Frequency: 8297[0m
+[0;32mI (17587) i2c: Amplitude High: 115[0m
+[0;32mI (17587) i2c: Amplitude Low: 32[0m
+[0;32mI (17597) i2c: Offset: 58[0m
+[0;32mI (17597) i2c: Offset: 30720[0m
+[0;32mI (17987) i2c: x is :y[0m
+[0;32mI (17987) i2c: [0m
+[0;32mI (17987) i2c: Wave: 120[0m
+[0;32mI (17987) i2c: CH: 32[0m
+[0;32mI (17987) i2c: Frequency: 8297[0m
+[0;32mI (17987) i2c: Amplitude High: 115[0m
+[0;32mI (17997) i2c: Amplitude Low: 32[0m
+[0;32mI (17997) i2c: Offset: 58[0m
+[0;32mI (18007) i2c: Offset: 30976[0m
+[0;32mI (18807) i2c: x is :z[0m
+[0;32mI (18807) i2c: [0m
+[0;32mI (18807) i2c: Wave: 120[0m
+[0;32mI (18807) i2c: CH: 32[0m
+[0;32mI (18807) i2c: Frequency: 8297[0m
+[0;32mI (18807) i2c: Amplitude High: 115[0m
+[0;32mI (18807) i2c: Amplitude Low: 32[0m
+[0;32mI (18817) i2c: Offset: 58[0m
+[0;32mI (18817) i2c: Offset: 31232[0m
+[0;32mI (19217) i2c: x is :{[0m
+[0;32mI (19217) i2c: [0m
+[0;32mI (19217) i2c: Wave: 120[0m
+[0;32mI (19217) i2c: CH: 32[0m
+[0;32mI (19217) i2c: Frequency: 8297[0m
+[0;32mI (19217) i2c: Amplitude High: 115[0m
+[0;32mI (19217) i2c: Amplitude Low: 32[0m
+[0;32mI (19227) i2c: Offset: 58[0m
+[0;32mI (19227) i2c: Offset: 31488[0m
+[0;32mI (19587) i2c: x is :|[0m
+[0;32mI (19587) i2c: [0m
+[0;32mI (19587) i2c: Wave: 120[0m
+[0;32mI (19587) i2c: CH: 32[0m
+[0;32mI (19587) i2c: Frequency: 8297[0m
+[0;32mI (19587) i2c: Amplitude High: 115[0m
+[0;32mI (19587) i2c: Amplitude Low: 32[0m
+[0;32mI (19597) i2c: Offset: 58[0m
+[0;32mI (19597) i2c: Offset: 31744[0m
+[0;32mI (19987) i2c: x is :}[0m
+[0;32mI (19987) i2c: [0m
+[0;32mI (19987) i2c: Wave: 120[0m
+[0;32mI (19987) i2c: CH: 32[0m
+[0;32mI (19987) i2c: Frequency: 8297[0m
+[0;32mI (19997) i2c: Amplitude High: 115[0m
+[0;32mI (19997) i2c: Amplitude Low: 32[0m
+[0;32mI (20007) i2c: Offset: 58[0m
+[0;32mI (20007) i2c: Offset: 32000[0m
+[0;32mI (20807) i2c: x is [0m
+[0;32mI (20807) i2c: [0m
+[0;32mI (20807) i2c: Wave: 120[0m
+[0;32mI (20807) i2c: CH: 32[0m
+[0;32mI (20807) i2c: Frequency: 8297[0m
+[0;32mI (20807) i2c: Amplitude High: 115[0m
+[0;32mI (20807) i2c: Amplitude Low: 32[0m
+[0;32mI (20817) i2c: Offset: 29[0m
+[0;32mI (20817) i2c: Offset: 0[0m
+[0;32mI (21217) i2c: x is :[0m
+[0;32mI (21217) i2c: [0m
+[0;32mI (21217) i2c: Wave: 120[0m
+[0;32mI (21217) i2c: CH: 32[0m
+[0;32mI (21217) i2c: Frequency: 8297[0m
+[0;32mI (21217) i2c: Amplitude High: 115[0m
+[0;32mI (21217) i2c: Amplitude Low: 32[0m
+[0;32mI (21227) i2c: Offset: 58[0m
+[0;32mI (21227) i2c: Offset: 32512[0m
+[0;32mI (21597) i2c: x is :�
+[0;32mI (21597) i2c: [0m
+[0;32mI (21597) i2c: Wave: 120[0m
+[0;32mI (21597) i2c: CH: 32[0m
+[0;32mI (21597) i2c: Frequency: 8297[0m
+[0;32mI (21597) i2c: Amplitude High: 115[0m
+[0;32mI (21597) i2c: Amplitude Low: 32[0m
+[0;32mI (21607) i2c: Offset: 58[0m
+[0;32mI (21607) i2c: Offset: 32768[0m
+[0;32mI (21997) i2c: x is :�
+[0;32mI (21997) i2c: [0m
+[0;32mI (21997) i2c: Wave: 120[0m
+[0;32mI (21997) i2c: CH: 32[0m
+[0;32mI (21997) i2c: Frequency: 8297[0m
+[0;32mI (21997) i2c: Amplitude High: 115[0m
+[0;32mI (22007) i2c: Amplitude Low: 32[0m
+[0;32mI (22007) i2c: Offset: 58[0m
+[0;32mI (22007) i2c: Offset: 33024[0m
+[0;32mI (22817) i2c: x is :�
+[0;32mI (22817) i2c: [0m
+[0;32mI (22817) i2c: Wave: 120[0m
+[0;32mI (22817) i2c: CH: 32[0m
+[0;32mI (22817) i2c: Frequency: 8297[0m
+[0;32mI (22817) i2c: Amplitude High: 115[0m
+[0;32mI (22817) i2c: Amplitude Low: 32[0m
+[0;32mI (22827) i2c: Offset: 58[0m
+[0;32mI (22827) i2c: Offset: 33280[0m
+[0;32mI (23227) i2c: x is :�
+[0;32mI (23227) i2c: [0m
+[0;32mI (23227) i2c: Wave: 120[0m
+[0;32mI (23227) i2c: CH: 32[0m
+[0;32mI (23227) i2c: Frequency: 8297[0m
+[0;32mI (23227) i2c: Amplitude High: 115[0m
+[0;32mI (23227) i2c: Amplitude Low: 32[0m
+[0;32mI (23237) i2c: Offset: 58[0m
+[0;32mI (23237) i2c: Offset: 33536[0m
+[0;32mI (23597) i2c: x is :�
+[0;32mI (23597) i2c: [0m
+[0;32mI (23597) i2c: Wave: 120[0m
+[0;32mI (23597) i2c: CH: 32[0m
+[0;32mI (23597) i2c: Frequency: 8297[0m
+[0;32mI (23597) i2c: Amplitude High: 115[0m
+[0;32mI (23597) i2c: Amplitude Low: 32[0m
+[0;32mI (23607) i2c: Offset: 58[0m
+[0;32mI (23607) i2c: Offset: 33792[0m
+[0;32mI (23997) i2c: x is :�
+[0;32mI (23997) i2c: [0m
+[0;32mI (23997) i2c: Wave: 120[0m
+[0;32mI (23997) i2c: CH: 32[0m
+[0;32mI (23997) i2c: Frequency: 8297[0m
+[0;32mI (23997) i2c: Amplitude High: 115[0m
+[0;32mI (24007) i2c: Amplitude Low: 32[0m
+[0;32mI (24007) i2c: Offset: 58[0m
+[0;32mI (24017) i2c: Offset: 34048[0m
+[0;32mI (24817) i2c: x is :�
+[0;32mI (24817) i2c: [0m
+[0;32mI (24817) i2c: Wave: 120[0m
+[0;32mI (24817) i2c: CH: 32[0m
+[0;32mI (24817) i2c: Frequency: 8297[0m
+[0;32mI (24817) i2c: Amplitude High: 115[0m
+[0;32mI (24817) i2c: Amplitude Low: 32[0m
+[0;32mI (24827) i2c: Offset: 58[0m
+[0;32mI (24827) i2c: Offset: 34304[0m
+[0;32mI (25227) i2c: x is :�
+[0;32mI (25227) i2c: [0m
+[0;32mI (25227) i2c: Wave: 120[0m
+[0;32mI (25227) i2c: CH: 32[0m
+[0;32mI (25227) i2c: Frequency: 8297[0m
+[0;32mI (25227) i2c: Amplitude High: 115[0m
+[0;32mI (25227) i2c: Amplitude Low: 32[0m
+[0;32mI (25237) i2c: Offset: 58[0m
+[0;32mI (25237) i2c: Offset: 34560[0m
+[0;32mI (25597) i2c: x is :�
+[0;32mI (25597) i2c: [0m
+[0;32mI (25597) i2c: Wave: 120[0m
+[0;32mI (25597) i2c: CH: 32[0m
+[0;32mI (25597) i2c: Frequency: 8297[0m
+[0;32mI (25597) i2c: Amplitude High: 115[0m
+[0;32mI (25597) i2c: Amplitude Low: 32[0m
+[0;32mI (25607) i2c: Offset: 58[0m
+[0;32mI (25607) i2c: Offset: 34816[0m
+[0;32mI (25997) i2c: x is :�
+[0;32mI (25997) i2c: [0m
+[0;32mI (25997) i2c: Wave: 120[0m
+[0;32mI (25997) i2c: CH: 32[0m
+[0;32mI (25997) i2c: Frequency: 8297[0m
+[0;32mI (26007) i2c: Amplitude High: 115[0m
+[0;32mI (26007) i2c: Amplitude Low: 32[0m
+[0;32mI (26017) i2c: Offset: 58[0m
+[0;32mI (26017) i2c: Offset: 35072[0m
+[0;32mI (26817) i2c: x is :�
+[0;32mI (26817) i2c: [0m
+[0;32mI (26817) i2c: Wave: 120[0m
+[0;32mI (26817) i2c: CH: 32[0m
+[0;32mI (26817) i2c: Frequency: 8297[0m
+[0;32mI (26817) i2c: Amplitude High: 115[0m
+[0;32mI (26817) i2c: Amplitude Low: 32[0m
+[0;32mI (26827) i2c: Offset: 58[0m
+[0;32mI (26827) i2c: Offset: 35328[0m
+[0;32mI (27227) i2c: x is :�
+[0;32mI (27227) i2c: [0m
+[0;32mI (27227) i2c: Wave: 120[0m
+[0;32mI (27227) i2c: CH: 32[0m
+[0;32mI (27227) i2c: Frequency: 8297[0m
+[0;32mI (27227) i2c: Amplitude High: 115[0m
+[0;32mI (27227) i2c: Amplitude Low: 32[0m
+[0;32mI (27237) i2c: Offset: 58[0m
+[0;32mI (27237) i2c: Offset: 35584[0m
+[0;32mI (27607) i2c: x is :�
+[0;32mI (27607) i2c: [0m
+[0;32mI (27607) i2c: Wave: 120[0m
+[0;32mI (27607) i2c: CH: 32[0m
+[0;32mI (27607) i2c: Frequency: 8297[0m
+[0;32mI (27607) i2c: Amplitude High: 115[0m
+[0;32mI (27607) i2c: Amplitude Low: 32[0m
+[0;32mI (27617) i2c: Offset: 58[0m
+[0;32mI (27617) i2c: Offset: 35840[0m
+[0;32mI (28007) i2c: x is :�
+[0;32mI (28007) i2c: [0m
+[0;32mI (28007) i2c: Wave: 120[0m
+[0;32mI (28007) i2c: CH: 32[0m
+[0;32mI (28007) i2c: Frequency: 8297[0m
+[0;32mI (28007) i2c: Amplitude High: 115[0m
+[0;32mI (28007) i2c: Amplitude Low: 32[0m
+[0;32mI (28017) i2c: Offset: 58[0m
+[0;32mI (28017) i2c: Offset: 36096[0m
+[0;32mI (28827) i2c: x is :�
+[0;32mI (28827) i2c: [0m
+[0;32mI (28827) i2c: Wave: 120[0m
+[0;32mI (28827) i2c: CH: 32[0m
+[0;32mI (28827) i2c: Frequency: 8297[0m
+[0;32mI (28827) i2c: Amplitude High: 115[0m
+[0;32mI (28827) i2c: Amplitude Low: 32[0m
+[0;32mI (28837) i2c: Offset: 58[0m
+[0;32mI (28837) i2c: Offset: 36352[0m
+[0;32mI (29237) i2c: x is :�
+[0;32mI (29237) i2c: [0m
+[0;32mI (29237) i2c: Wave: 120[0m
+[0;32mI (29237) i2c: CH: 32[0m
+[0;32mI (29237) i2c: Frequency: 8297[0m
+[0;32mI (29237) i2c: Amplitude High: 115[0m
+[0;32mI (29237) i2c: Amplitude Low: 32[0m
+[0;32mI (29247) i2c: Offset: 58[0m
+[0;32mI (29247) i2c: Offset: 36608[0m
+[0;32mI (29607) i2c: x is :�
+[0;32mI (29607) i2c: [0m
+[0;32mI (29607) i2c: Wave: 120[0m
+[0;32mI (29607) i2c: CH: 32[0m
+[0;32mI (29607) i2c: Frequency: 8297[0m
+[0;32mI (29607) i2c: Amplitude High: 115[0m
+[0;32mI (29607) i2c: Amplitude Low: 32[0m
+[0;32mI (29617) i2c: Offset: 58[0m
+[0;32mI (29617) i2c: Offset: 36864[0m
+[0;32mI (30007) i2c: x is :�
+[0;32mI (30007) i2c: [0m
+[0;32mI (30007) i2c: Wave: 120[0m
+[0;32mI (30007) i2c: CH: 32[0m
+[0;32mI (30007) i2c: Frequency: 8297[0m
+[0;32mI (30007) i2c: Amplitude High: 115[0m
+[0;32mI (30017) i2c: Amplitude Low: 32[0m
+[0;32mI (30017) i2c: Offset: 58[0m
+[0;32mI (30027) i2c: Offset: 37120[0m
+[0;32mI (30827) i2c: x is :�
+[0;32mI (30827) i2c: [0m
+[0;32mI (30827) i2c: Wave: 120[0m
+[0;32mI (30827) i2c: CH: 32[0m
+[0;32mI (30827) i2c: Frequency: 8297[0m
+[0;32mI (30827) i2c: Amplitude High: 115[0m
+[0;32mI (30827) i2c: Amplitude Low: 32[0m
+[0;32mI (30837) i2c: Offset: 58[0m
+[0;32mI (30837) i2c: Offset: 37376[0m
+[0;32mI (31237) i2c: x is :�
+[0;32mI (31237) i2c: [0m
+[0;32mI (31237) i2c: Wave: 120[0m
+[0;32mI (31237) i2c: CH: 32[0m
+[0;32mI (31237) i2c: Frequency: 8297[0m
+[0;32mI (31237) i2c: Amplitude High: 115[0m
+[0;32mI (31237) i2c: Amplitude Low: 32[0m
+[0;32mI (31247) i2c: Offset: 58[0m
+[0;32mI (31247) i2c: Offset: 37632[0m
+[0;32mI (134447) i2c: x 4[0m
+[0;32mI (134447) i2c: [0m
+[0;32mI (134447) i2c: Wave: 120[0m
+[0;32mI (134447) i2c: CH: 32[0m
+[0;32mI (134447) i2c: Frequency: 8244[0m
+[0;32mI (134447) i2c: Amplitude High: 0[0m
+[0;32mI (134447) i2c: Amplitude Low: 0[0m
+[0;32mI (134457) i2c: Offset: 19[0m
+[0;32mI (134457) i2c: Offset: 35071[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7140
+load:0x40078000,len:15696
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3944
+entry 0x4008065c
+[0;32mI (31) boot: ESP-IDF v5.2-dev-3318-g8fc8f3f479-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Nov  2 2023 17:27:40[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (86) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (94) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c5c8h ( 50632) map[0m
+[0;32mI (125) esp_image: segment 1: paddr=0001c5f0 vaddr=3ffb0000 size=021bch (  8636) load[0m
+[0;32mI (128) esp_image: segment 2: paddr=0001e7b4 vaddr=40080000 size=01864h (  6244) load[0m
+[0;32mI (133) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1c39ch (115612) map[0m
+[0;32mI (181) esp_image: segment 4: paddr=0003c3c4 vaddr=40081864 size=0c400h ( 50176) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (220) cpu_start: Multicore app[0m
+[0;32mI (229) cpu_start: Pro cpu start user code[0m
+[0;32mI (229) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (229) cpu_start: Application information:[0m
+[0;32mI (232) cpu_start: Project name:     app-template[0m
+[0;32mI (238) cpu_start: App version:      3b2d56c-dirty[0m
+[0;32mI (243) cpu_start: Compile time:     Nov  2 2023 21:53:43[0m
+[0;32mI (249) cpu_start: ELF file SHA256:  2e1666508...[0m
+[0;32mI (255) cpu_start: ESP-IDF:          v5.2-dev-3318-g8fc8f3f479-dirty[0m
+[0;32mI (262) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (266) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (271) cpu_start: Chip rev:         v3.0[0m
+[0;32mI (276) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (283) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (289) heap_init: At 3FFB30B0 len 0002CF50 (179 KiB): DRAM[0m
+[0;32mI (295) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (302) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (308) heap_init: At 4008DC64 len 0001239C (72 KiB): IRAM[0m
+[0;32mI (316) spi_flash: detected chip: generic[0m
+[0;32mI (319) spi_flash: flash io: dio[0m
+[0;33mW (323) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (336) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (347) main_task: Started on CPU0[0m
+[0;32mI (357) main_task: Calling app_main()[0m
+[0;32mI (357) i2c: i2c started[0m
+[0;32mI (57217) i2c: [0m
+[0;32mI (57217) i2c: [0m
+[0;32mI (57217) i2c: Wave: 0[0m
+[0;32mI (57217) i2c: CH: 0[0m
+[0;32mI (57217) i2c: Frequency: 19[0m
+[0;32mI (57217) i2c: Amplitude High: 136[0m
+[0;32mI (57217) i2c: Amplitude Low: 127[0m
+[0;32mI (57227) i2c: Offset: 0[0m
+[0;32mI (57227) i2c: Offset: 19[0m
+[0;32mI (62427) i2c: [0m
+[0;32mI (62427) i2c: [0m
+[0;32mI (62427) i2c: Wave: 0[0m
+[0;32mI (62427) i2c: CH: 0[0m
+[0;32mI (62427) i2c: Frequency: 0[0m
+[0;32mI (62427) i2c: Amplitude High: 0[0m
+[0;32mI (62427) i2c: Amplitude Low: 0[0m
+[0;32mI (62437) i2c: Offset: 0[0m
+[0;32mI (62437) i2c: Offset: 0[0m
+[0;32mI (67217) i2c: [0m
+[0;32mI (67217) i2c: [0m
+[0;32mI (67217) i2c: Wave: 0[0m
+[0;32mI (67217) i2c: CH: 0[0m
+[0;32mI (67217) i2c: Frequency: 0[0m
+[0;32mI (67217) i2c: Amplitude High: 0[0m
+[0;32mI (67217) i2c: Amplitude Low: 0[0m
+[0;32mI (67227) i2c: Offset: 0[0m
+[0;32mI (67227) i2c: Offset: 0[0m
+[0;32mI (72427) i2c: [0m
+[0;32mI (72427) i2c: [0m
+[0;32mI (72427) i2c: Wave: 0[0m
+[0;32mI (72427) i2c: CH: 0[0m
+[0;32mI (72427) i2c: Frequency: 0[0m
+[0;32mI (72427) i2c: Amplitude High: 0[0m
+[0;32mI (72427) i2c: Amplitude Low: 0[0m
+[0;32mI (72437) i2c: Offset: 0[0m
+[0;32mI (72437) i2c: Offset: 0[0m
+[0;32mI (77217) i2c: [0m
+[0;32mI (77217) i2c: [0m
+[0;32mI (77217) i2c: Wave: 0[0m
+[0;32mI (77217) i2c: CH: 0[0m
+[0;32mI (77217) i2c: Frequency: 0[0m
+[0;32mI (77217) i2c: Amplitude High: 0[0m
+[0;32mI (77217) i2c: Amplitude Low: 0[0m
+[0;32mI (77227) i2c: Offset: 0[0m
+[0;32mI (77227) i2c: Offset: 0[0m
+[0;32mI (82427) i2c: [0m
+[0;32mI (82427) i2c: [0m
+[0;32mI (82427) i2c: Wave: 0[0m
+[0;32mI (82427) i2c: CH: 0[0m
+[0;32mI (82427) i2c: Frequency: 0[0m
+[0;32mI (82427) i2c: Amplitude High: 0[0m
+[0;32mI (82427) i2c: Amplitude Low: 0[0m
+[0;32mI (82437) i2c: Offset: 0[0m
+[0;32mI (82437) i2c: Offset: 0[0m
+[0;32mI (87217) i2c: [0m
+[0;32mI (87217) i2c: [0m
+[0;32mI (87217) i2c: Wave: 0[0m
+[0;32mI (87217) i2c: CH: 0[0m
+[0;32mI (87217) i2c: Frequency: 0[0m
+[0;32mI (87217) i2c: Amplitude High: 0[0m
+[0;32mI (87217) i2c: Amplitude Low: 0[0m
+[0;32mI (87227) i2c: Offset: 0[0m
+[0;32mI (87227) i2c: Offset: 0[0m
+[0;32mI (92427) i2c: [0m
+[0;32mI (92427) i2c: [0m
+[0;32mI (92427) i2c: Wave: 0[0m
+[0;32mI (92427) i2c: CH: 0[0m
+[0;32mI (92427) i2c: Frequency: 0[0m
+[0;32mI (92427) i2c: Amplitude High: 0[0m
+[0;32mI (92427) i2c: Amplitude Low: 0[0m
+[0;32mI (92437) i2c: Offset: 0[0m
+[0;32mI (92437) i2c: Offset: 0[0m
+[0;32mI (98837) i2c: [0m
+[0;32mI (98837) i2c: [0m
+[0;32mI (98837) i2c: Wave: 0[0m
+[0;32mI (98837) i2c: CH: 0[0m
+[0;32mI (98837) i2c: Frequency: 19[0m
+[0;32mI (98837) i2c: Amplitude High: 136[0m
+[0;32mI (98837) i2c: Amplitude Low: 255[0m
+[0;32mI (98847) i2c: Offset: 0[0m
+[0;32mI (98847) i2c: Offset: 0[0m
+[0;32mI (103627) i2c: [0m
+[0;32mI (103627) i2c: [0m
+[0;32mI (103627) i2c: Wave: 0[0m
+[0;32mI (103627) i2c: CH: 0[0m
+[0;32mI (103627) i2c: Frequency: 19[0m
+[0;32mI (103627) i2c: Amplitude High: 136[0m
+[0;32mI (103637) i2c: Amplitude Low: 255[0m
+[0;32mI (103637) i2c: Offset: 0[0m
+[0;32mI (103647) i2c: Offset: 0[0m
+[0;32mI (108847) i2c: [0m
+[0;32mI (108847) i2c: [0m
+[0;32mI (108847) i2c: Wave: 0[0m
+[0;32mI (108847) i2c: CH: 0[0m
+[0;32mI (108847) i2c: Frequency: 19[0m
+[0;32mI (108847) i2c: Amplitude High: 136[0m
+[0;32mI (108847) i2c: Amplitude Low: 255[0m
+[0;32mI (108857) i2c: Offset: 0[0m
+[0;32mI (108857) i2c: Offset: 0[0m
+[0;32mI (113627) i2c: [0m
+[0;32mI (113627) i2c: [0m
+[0;32mI (113627) i2c: Wave: 0[0m
+[0;32mI (113627) i2c: CH: 0[0m
+[0;32mI (113627) i2c: Frequency: 19[0m
+[0;32mI (113637) i2c: Amplitude High: 0[0m
+[0;32mI (113637) i2c: Amplitude Low: 0[0m
+[0;32mI (113637) i2c: Offset: 0[0m
+[0;32mI (113647) i2c: Offset: 0[0m
+[0;32mI (168757) i2c: [0m
+[0;32mI (168757) i2c: [0m
+[0;32mI (168757) i2c: Wave: 0[0m
+[0;32mI (168757) i2c: CH: 0[0m
+[0;32mI (168757) i2c: Frequency: 9[0m
+[0;32mI (168757) i2c: Amplitude High: 0[0m
+[0;32mI (168757) i2c: Amplitude Low: 0[0m
+[0;32mI (168767) i2c: Offset: 19[0m
+[0;32mI (168767) i2c: Offset: 35071[0m
+[0;32mI (173967) i2c: [0m
+[0;32mI (173967) i2c: [0m
+[0;32mI (173967) i2c: Wave: 0[0m
+[0;32mI (173967) i2c: CH: 0[0m
+[0;32mI (173967) i2c: Frequency: 19[0m
+[0;32mI (173967) i2c: Amplitude High: 136[0m
+[0;32mI (173967) i2c: Amplitude Low: 255[0m
+[0;32mI (173977) i2c: Offset: 0[0m
+[0;32mI (173977) i2c: Offset: 0[0m
+[0;32mI (178757) i2c: [0m
+[0;32mI (178757) i2c: [0m
+[0;32mI (178757) i2c: Wave: 0[0m
+[0;32mI (178757) i2c: CH: 0[0m
+[0;32mI (178757) i2c: Frequency: 19[0m
+[0;32mI (178757) i2c: Amplitude High: 136[0m
+[0;32mI (178757) i2c: Amplitude Low: 255[0m
+[0;32mI (178767) i2c: Offset: 0[0m
+[0;32mI (178767) i2c: Offset: 0[0m
+[0;32mI (183967) i2c: [0m
+[0;32mI (183967) i2c: [0m
+[0;32mI (183967) i2c: Wave: 0[0m
+[0;32mI (183967) i2c: CH: 0[0m
+[0;32mI (183967) i2c: Frequency: 19[0m
+[0;32mI (183967) i2c: Amplitude High: 136[0m
+[0;32mI (183967) i2c: Amplitude Low: 255[0m
+[0;32mI (183977) i2c: Offset: 0[0m
+[0;32mI (183977) i2c: Offset: 0[0m
+[0;32mI (188757) i2c: [0m
+[0;32mI (188757) i2c: [0m
+[0;32mI (188757) i2c: Wave: 0[0m
+[0;32mI (188757) i2c: CH: 0[0m
+[0;32mI (188757) i2c: Frequency: 19[0m
+[0;32mI (188757) i2c: Amplitude High: 136[0m
+[0;32mI (188757) i2c: Amplitude Low: 255[0m
+[0;32mI (188767) i2c: Offset: 0[0m
+[0;32mI (188767) i2c: Offset: 0[0m
+[0;32mI (193967) i2c: [0m
+[0;32mI (193967) i2c: [0m
+[0;32mI (193967) i2c: Wave: 0[0m
+[0;32mI (193967) i2c: CH: 0[0m
+[0;32mI (193967) i2c: Frequency: 19[0m
+[0;32mI (193967) i2c: Amplitude High: 136[0m
+[0;32mI (193967) i2c: Amplitude Low: 255[0m
+[0;32mI (193977) i2c: Offset: 0[0m
+[0;32mI (193977) i2c: Offset: 0[0m
+[0;32mI (198757) i2c: [0m
+[0;32mI (198757) i2c: [0m
+[0;32mI (198757) i2c: Wave: 0[0m
+[0;32mI (198757) i2c: CH: 0[0m
+[0;32mI (198757) i2c: Frequency: 19[0m
+[0;32mI (198757) i2c: Amplitude High: 136[0m
+[0;32mI (198757) i2c: Amplitude Low: 255[0m
+[0;32mI (198767) i2c: Offset: 0[0m
+[0;32mI (198767) i2c: Offset: 0[0m
+[0;32mI (203967) i2c: [0m
+[0;32mI (203967) i2c: [0m
+[0;32mI (203967) i2c: Wave: 0[0m
+[0;32mI (203967) i2c: CH: 0[0m
+[0;32mI (203967) i2c: Frequency: 19[0m
+[0;32mI (203967) i2c: Amplitude High: 136[0m
+[0;32mI (203967) i2c: Amplitude Low: 255[0m
+[0;32mI (203977) i2c: Offset: 0[0m
+[0;32mI (203977) i2c: Offset: 0[0m
+[0;32mI (208757) i2c: [0m
+[0;32mI (208757) i2c: [0m
+[0;32mI (208757) i2c: Wave: 0[0m
+[0;32mI (208757) i2c: CH: 0[0m
+[0;32mI (208757) i2c: Frequency: 19[0m
+[0;32mI (208757) i2c: Amplitude High: 136[0m
+[0;32mI (208757) i2c: Amplitude Low: 255[0m
+[0;32mI (208767) i2c: Offset: 0[0m
+[0;32mI (208767) i2c: Offset: 0[0m
+[0;32mI (213967) i2c: [0m
+[0;32mI (213967) i2c: [0m
+[0;32mI (213967) i2c: Wave: 0[0m
+[0;32mI (213967) i2c: CH: 0[0m
+[0;32mI (213967) i2c: Frequency: 19[0m
+[0;32mI (213967) i2c: Amplitude High: 136[0m
+[0;32mI (213967) i2c: Amplitude Low: 255[0m
+[0;32mI (213977) i2c: Offset: 0[0m
+[0;32mI (213977) i2c: Offset: 0[0m
+[0;32mI (218757) i2c: [0m
+[0;32mI (218757) i2c: [0m
+[0;32mI (218757) i2c: Wave: 0[0m
+[0;32mI (218757) i2c: CH: 0[0m
+[0;32mI (218757) i2c: Frequency: 19[0m
+[0;32mI (218757) i2c: Amplitude High: 136[0m
+[0;32mI (218757) i2c: Amplitude Low: 255[0m
+[0;32mI (218767) i2c: Offset: 0[0m
+[0;32mI (218767) i2c: Offset: 0[0m
+[0;32mI (223967) i2c: [0m
+[0;32mI (223967) i2c: [0m
+[0;32mI (223967) i2c: Wave: 0[0m
+[0;32mI (223967) i2c: CH: 0[0m
+[0;32mI (223967) i2c: Frequency: 19[0m
+[0;32mI (223967) i2c: Amplitude High: 136[0m
+[0;32mI (223967) i2c: Amplitude Low: 255[0m
+[0;32mI (223977) i2c: Offset: 0[0m
+[0;32mI (223977) i2c: Offset: 0[0m
+[0;32mI (228757) i2c: [0m
+[0;32mI (228757) i2c: [0m
+[0;32mI (228757) i2c: Wave: 0[0m
+[0;32mI (228757) i2c: CH: 0[0m
+[0;32mI (228757) i2c: Frequency: 19[0m
+[0;32mI (228757) i2c: Amplitude High: 136[0m
+[0;32mI (228757) i2c: Amplitude Low: 255[0m
+[0;32mI (228767) i2c: Offset: -128[0m
+[0;32mI (228767) i2c: Offset: 0[0m

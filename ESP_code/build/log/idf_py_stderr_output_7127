@@ -1,0 +1,295 @@
+[0;33m--- esp-idf-monitor 1.3.1 on /dev/ttyUSB0 115200 ---[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0;33m0x400d8485: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:93
+[0m
+[0;33m0x4000c46c: memset in ROM
+[0m
+[0;33m0x4000c477: memset in ROM
+[0m
+[0;33m0x400d8482: s_dac_dma_periph_set_clock at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:91
+[0m
+[0;33m0x400d8681: dac_dma_periph_init at /home/matiasnd/esp/esp-idf/components/driver/dac/esp32/dac_dma.c:126
+[0m
+[0;33m0x400d794e: dac_continuous_new_channels at /home/matiasnd/esp/esp-idf/components/driver/dac/dac_continuous.c:247 (discriminator 2)
+[0m
+[0;33m0x400d581b: dac_dma_write_task at /home/matiasnd/awg/ESP_code/main/main.c:117 (discriminator 2)
+[0m
+[0;33m0x40087a3d: vPortTaskWrapper at /home/matiasnd/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:162
+[0m
+[0;33m0x40080400: _init at ??:?
+[0m
+[0m

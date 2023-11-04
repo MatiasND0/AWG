@@ -21,24 +21,16 @@ extern "C"
 
 #define EXAMPLE_WAVE_FREQ_HZ        5000                      					// Default wave frequency 2000 Hz, it can't be too low
 #define EXAMPLE_CONVERT_FREQ_HZ     (EXAMPLE_ARRAY_LEN * EXAMPLE_WAVE_FREQ_HZ)  // The frequency that DAC convert every data in the wave array
-
+                   // Used to store square wave values
 
 typedef enum {
     DAC_SINE_WAVE,
     DAC_TRIANGLE_WAVE,
     DAC_SAWTOOTH_WAVE,
     DAC_SQUARE_WAVE,
+	DAC_NOISE_WAVE,
     DAC_WAVE_MAX,
 } dac_example_wave_type_t;
-
-typedef struct {
-	dac_continuous_handle_t handle;
-	dac_continuous_config_t handle_cfg;
-	dac_example_wave_type_t wave;
-} wave_config;
-
-esp_err_t generate_wave(uint8_t func, uint8_t amplitude, uint8_t phase);
-esp_err_t dac_cont_init(void);
 
 #ifdef __cplusplus
 }

@@ -4611,6 +4611,54 @@
     {
         "children": [
             {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for I2C Slave clock line.",
+                "id": "I2C_SLAVE_SCL",
+                "name": "I2C_SLAVE_SCL",
+                "range": null,
+                "title": "SCL GPIO Num",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number for I2C Slave data line.",
+                "id": "I2C_SLAVE_SDA",
+                "name": "I2C_SLAVE_SDA",
+                "range": null,
+                "title": "SDA GPIO Num",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Port number for I2C Slave device.",
+                "id": "I2C_SLAVE_PORT_NUM",
+                "name": "I2C_SLAVE_PORT_NUM",
+                "range": null,
+                "title": "Port Number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Hardware Address of I2C Slave Port.",
+                "id": "I2C_SLAVE_ADDRESS",
+                "name": "I2C_SLAVE_ADDRESS",
+                "range": null,
+                "title": "ESP Slave Address",
+                "type": "hex"
+            }
+        ],
+        "depends_on": null,
+        "id": "i2c-slave",
+        "title": "I2C Slave",
+        "type": "menu"
+    },
+    {
+        "children": [
+            {
                 "children": [
                     {
                         "children": [],

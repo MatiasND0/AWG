@@ -1,0 +1,328 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7140
+load:0x40078000,len:15696
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3944
+entry 0x4008065c
+[0;32mI (31) boot: ESP-IDF v5.2-dev-3318-g8fc8f3f479-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Nov  2 2023 17:27:40[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (38) boot: chip revision: v3.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (46) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (51) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (55) boot: Enabling RNG early entropy source...[0m
+[0;32mI (61) boot: Partition Table:[0m
+[0;32mI (64) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (79) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (86) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (94) boot: End of partition table[0m
+[0;32mI (98) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0c4e8h ( 50408) map[0m
+[0;32mI (125) esp_image: segment 1: paddr=0001c510 vaddr=3ffb0000 size=021bch (  8636) load[0m
+[0;32mI (128) esp_image: segment 2: paddr=0001e6d4 vaddr=40080000 size=01944h (  6468) load[0m
+[0;32mI (133) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=1c2b8h (115384) map[0m
+[0;32mI (181) esp_image: segment 4: paddr=0003c2e0 vaddr=40081944 size=0c320h ( 49952) load[0m
+[0;32mI (209) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (209) boot: Disabling RNG early entropy source...[0m
+[0;32mI (220) cpu_start: Multicore app[0m
+[0;32mI (229) cpu_start: Pro cpu start user code[0m
+[0;32mI (229) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (229) cpu_start: Application information:[0m
+[0;32mI (232) cpu_start: Project name:     app-template[0m
+[0;32mI (237) cpu_start: App version:      3b2d56c-dirty[0m
+[0;32mI (243) cpu_start: Compile time:     Nov  2 2023 21:53:43[0m
+[0;32mI (249) cpu_start: ELF file SHA256:  1fd51742b...[0m
+[0;32mI (254) cpu_start: ESP-IDF:          v5.2-dev-3318-g8fc8f3f479-dirty[0m
+[0;32mI (261) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (266) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (271) cpu_start: Chip rev:         v3.0[0m
+[0;32mI (276) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (283) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (289) heap_init: At 3FFB30B0 len 0002CF50 (179 KiB): DRAM[0m
+[0;32mI (295) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (301) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (308) heap_init: At 4008DC64 len 0001239C (72 KiB): IRAM[0m
+[0;32mI (316) spi_flash: detected chip: generic[0m
+[0;32mI (319) spi_flash: flash io: dio[0m
+[0;33mW (323) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (336) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (347) main_task: Started on CPU0[0m
+[0;32mI (357) main_task: Calling app_main()[0m
+[0;32mI (357) i2c: i2c started[0m
+[0;32mI (397257) i2c: x is [0m
+[0;32mI (397257) i2c: [0m
+[0;32mI (397657) i2c: x is [0m
+[0;32mI (397657) i2c: [0m
+[0;32mI (398457) i2c: x is [0m
+[0;32mI (398457) i2c: [0m
+[0;32mI (398857) i2c: x is [0m
+[0;32mI (398857) i2c: [0m
+[0;32mI (399257) i2c: x is [0m
+[0;32mI (399257) i2c: [0m
+[0;32mI (399657) i2c: x is [0m
+[0;32mI (399657) i2c: [0m
+[0;32mI (400457) i2c: x is [0m
+[0;32mI (400457) i2c: [0m
+[0;32mI (400857) i2c: x is [0m
+[0;32mI (400857) i2c: [0m
+[0;32mI (401257) i2c: x is [0m
+[0;32mI (401257) i2c: [0m
+[0;32mI (401657) i2c: x is 	[0m
+[0;32mI (401657) i2c: [0m
+[0;32mI (402457) i2c: x is 
+[0m
+[0;32mI (402457) i2c: [0m
+[0;32mI (456457) i2c: x is [0m
+[0;32mI (456457) i2c: [0m
+[0;32mI (457967) i2c: x is [0m
+[0;32mI (457967) i2c: [0m
+[0;32mI (458767) i2c: x is [0m
+[0;32mI (458767) i2c: [0m
+[0;32mI (459167) i2c: x is [0m
+[0;32mI (459167) i2c: [0m
+[0;32mI (459567) i2c: x is [0m
+[0;32mI (459567) i2c: [0m
+[0;32mI (460367) i2c: x is [0m
+[0;32mI (460367) i2c: [0m
+[0;32mI (460767) i2c: x is [0m
+[0;32mI (460767) i2c: [0m
+[0;32mI (461167) i2c: x is [0m
+[0;32mI (461167) i2c: [0m
+[0;32mI (461567) i2c: x is [0m
+[0;32mI (461567) i2c: [0m
+[0;32mI (462367) i2c: x is [0m
+[0;32mI (462367) i2c: [0m
+[0;32mI (462767) i2c: x is 	[0m
+[0;32mI (462767) i2c: [0m
+[0;32mI (546297) i2c: x 4[0m
+[0;32mI (546297) i2c: [0m
+[0;32mI (547097) i2c: x[0m
+[0;32mI (547097) i2c: [0m
+[0;32mI (547497) i2c: x [0m
+[0;32mI (547497) i2c: [0m
+[0;32mI (547897) i2c: x i[0m
+[0;32mI (547897) i2c: [0m
+[0;32mI (548297) i2c: x is[0m
+[0;32mI (548297) i2c: [0m
+[0;32mI (549097) i2c: x is [0m
+[0;32mI (549097) i2c: [0m
+[0;32mI (549497) i2c: x is %[0m
+[0;32mI (549497) i2c: [0m
+[0;32mI (549897) i2c: x is %d[0m
+[0;32mI (549897) i2c: [0m
+[0;32mI (550297) i2c: x is %d[0m
+[0;32mI (550297) i2c: [0m
+[0;32mI (551097) i2c: x is %d[0m
+[0;32mI (551097) i2c: [0m
+[0;32mI (551497) i2c: x is %d[0m
+[0;32mI (551497) i2c: [0m
+[0;32mI (551807) i2c: x is %d[0m
+[0;32mI (551807) i2c: [0m
+[0;32mI (552607) i2c: x is %d[0m
+[0;32mI (552607) i2c: [0m
+[0;32mI (553007) i2c: x is %d[0m
+[0;32mI (553007) i2c: [0m
+[0;32mI (553407) i2c: x is %d[0m
+[0;32mI (553407) i2c: [0m
+[0;32mI (553807) i2c: x is %d[0m
+[0;32mI (553807) i2c: [0m
+[0;32mI (554607) i2c: x is %d[0m
+[0;32mI (554607) i2c: [0m
+[0;32mI (555007) i2c: x is %d[0m
+[0;32mI (555007) i2c: [0m
+[0;32mI (555317) i2c: x is %d[0m
+[0;32mI (555317) i2c: [0m
+[0;32mI (556117) i2c: x is %d[0m
+[0;32mI (556117) i2c: [0m
+[0;32mI (556517) i2c: x is %d[0m
+[0;32mI (556517) i2c: [0m
+[0;32mI (584517) i2c: x is x is :[0m
+[0;32mI (584517) i2c: [0m
+[0;32mI (584917) i2c: x is :[0m
+[0;32mI (584917) i2c: [0m
+[0;32mI (585307) i2c: x is :[0m
+[0;32mI (585307) i2c: [0m
+[0;32mI (586107) i2c: x is :[0m
+[0;32mI (586107) i2c: [0m
+[0;32mI (586507) i2c: x is :[0m
+[0;32mI (586507) i2c: [0m
+[0;32mI (586907) i2c: x is :[0m
+[0;32mI (586907) i2c: [0m
+[0;32mI (587307) i2c: x is :[0m
+[0;32mI (587307) i2c: [0m
+[0;32mI (588107) i2c: x is :[0m
+[0;32mI (588107) i2c: [0m
+[0;32mI (588507) i2c: x is :[0m
+[0;32mI (588507) i2c: [0m
+[0;32mI (588907) i2c: x is :	[0m
+[0;32mI (588907) i2c: [0m
+[0;32mI (589307) i2c: x is :
+[0m
+[0;32mI (589307) i2c: [0m
+[0;32mI (590107) i2c: x is :[0m
+[0;32mI (590107) i2c: [0m
+[0;32mI (590507) i2c: x is :[0m
+[0;32mI (590507) i2c: [0m
+[0;32mI (590907) i2c: x is :[0m
+[0;32mI (590907) i2c: [0m
+[0;32mI (591217) i2c: x is :[0m
+[0;32mI (591217) i2c: [0m
+[0;32mI (592017) i2c: x is :[0m
+[0;32mI (592017) i2c: [0m
+[0;32mI (592417) i2c: x is :[0m
+[0;32mI (592417) i2c: [0m
+[0;32mI (592817) i2c: x is�
+[0;32mI (592817) i2c: [0m
+[0;32mI (593617) i2c: x is :[0m
+[0;32mI (593617) i2c: [0m
+[0;32mI (594017) i2c: x is :[0m
+[0;32mI (594017) i2c: [0m
+[0;32mI (594417) i2c: x is :[0m
+[0;32mI (594417) i2c: [0m
+[0;32mI (594817) i2c: x is :[0m
+[0;32mI (594817) i2c: [0m
+[0;32mI (595617) i2c: x is :[0m
+[0;32mI (595617) i2c: [0m
+[0;32mI (596017) i2c: x is :[0m
+[0;32mI (596017) i2c: [0m
+[0;32mI (596417) i2c: x is :[0m
+[0;32mI (596417) i2c: [0m
+[0;32mI (596817) i2c: x is :[0m
+[0;32mI (596817) i2c: [0m
+[0;32mI (597617) i2c: x is :[0m
+[0;32mI (597617) i2c: [0m
+[0;32mI (598017) i2c: x is :[0m
+[0;32mI (598017) i2c: [0m
+[0;32mI (598327) i2c: x is :[0m
+[0;32mI (598327) i2c: [0m
+[0;32mI (599127) i2c: x is :[0m
+[0;32mI (599127) i2c: [0m
+[0;32mI (599527) i2c: x is :[0m
+[0;32mI (599527) i2c: [0m
+[0;32mI (599927) i2c: x is :[0m
+[0;32mI (599927) i2c: [0m
+[0;32mI (600327) i2c: x is : [0m
+[0;32mI (600327) i2c: [0m
+[0;32mI (601127) i2c: <[0m
+[0;32mI (601127) i2c: [0m
+[0;32mI (601527) i2c: x is :"[0m
+[0;32mI (601527) i2c: [0m
+[0;32mI (601927) i2c: x is :#[0m
+[0;32mI (601927) i2c: [0m
+[0;32mI (638327) i2c: x 4x is :a[0m
+[0;32mI (638327) i2c: [0m
+[0;32mI (639927) i2c: x is :a[0m
+[0;32mI (639927) i2c: [0m
+[0;32mI (640277) i2c: x is :b[0m
+[0;32mI (640277) i2c: [0m
+[0;32mI (641077) i2c: x is :c[0m
+[0;32mI (641077) i2c: [0m
+[0;32mI (641477) i2c: x is :d[0m
+[0;32mI (641477) i2c: [0m
+[0;32mI (641787) i2c: <[0m
+[0;32mI (641787) i2c: [0m
+[0;32mI (642587) i2c: x is :f[0m
+[0;32mI (642587) i2c: [0m
+[0;32mI (642987) i2c: x is :g[0m
+[0;32mI (642987) i2c: [0m
+[0;32mI (643387) i2c: x is :h[0m
+[0;32mI (643387) i2c: [0m
+[0;32mI (643787) i2c: x is :i[0m
+[0;32mI (643787) i2c: [0m
+[0;32mI (644587) i2c: x is :j[0m
+[0;32mI (644587) i2c: [0m
+[0;32mI (645387) i2c: x is :l[0m
+[0;32mI (645387) i2c: [0m
+[0;32mI (645787) i2c: x is :m[0m
+[0;32mI (645787) i2c: [0m
+[0;32mI (646587) i2c: x is :n[0m
+[0;32mI (646587) i2c: [0m
+[0;32mI (646987) i2c: x is :o[0m
+[0;32mI (646987) i2c: [0m
+[0;32mI (647387) i2c: x is :p[0m
+[0;32mI (647387) i2c: [0m
+[0;32mI (647787) i2c: x is :q[0m
+[0;32mI (647787) i2c: [0m
+[0;32mI (648587) i2c: x[0m
+[0;32mI (648587) i2c: [0m
+[0;32mI (648987) i2c: x is :s[0m
+[0;32mI (648987) i2c: [0m
+[0;32mI (649297) i2c: x is :t[0m
+[0;32mI (649297) i2c: [0m
+[0;32mI (650097) i2c: x is :u[0m
+[0;32mI (650097) i2c: [0m
+[0;32mI (650497) i2c: x is :v[0m
+[0;32mI (650497) i2c: [0m
+[0;32mI (650897) i2c: x is :w[0m
+[0;32mI (650897) i2c: [0m
+[0;32mI (651297) i2c: x is :x[0m
+[0;32mI (651297) i2c: [0m
+[0;32mI (652097) i2c: x is :y[0m
+[0;32mI (652097) i2c: [0m
+[0;32mI (652497) i2c: x is :z[0m
+[0;32mI (652497) i2c: [0m
+[0;32mI (652897) i2c: x is :{[0m
+[0;32mI (652897) i2c: [0m
+[0;32mI (653297) i2c: x is :|[0m
+[0;32mI (653297) i2c: [0m
+[0;32mI (654097) i2c: x is :}[0m
+[0;32mI (654097) i2c: [0m
+[0;32mI (654497) i2c: x is :~[0m
+[0;32mI (654497) i2c: [0m
+[0;32mI (687297) i2c: x i�x is [0m
+[0;32mI (687297) i2c: [0m
+[0;32mI (687697) i2c: x is :b[0m
+[0;32mI (687697) i2c: [0m
+[0;32mI (688457) i2c: x is :d[0m
+[0;32mI (688457) i2c: [0m
+[0;32mI (689257) i2c: x is :e[0m
+[0;32mI (689257) i2c: [0m
+[0;32mI (700857) i2c: x 4x is :a[0m
+[0;32mI (700857) i2c: [0m
+[0;32mI (701247) i2c: x is :b[0m
+[0;32mI (701247) i2c: [0m
+[0;32mI (702047) i2c: x is :c[0m
+[0;32mI (702047) i2c: [0m
+[0;32mI (702447) i2c: x is :d[0m
+[0;32mI (702447) i2c: [0m
+[0;32mI (702847) i2c: x is :e[0m
+[0;32mI (702847) i2c: [0m
+[0;32mI (703247) i2c: x is :f[0m
+[0;32mI (703247) i2c: [0m
+[0;32mI (704047) i2c: x is :g[0m
+[0;32mI (704047) i2c: [0m
+[0;32mI (704447) i2c: x is :h[0m
+[0;32mI (704447) i2c: [0m
+[0;32mI (704847) i2c: x is :i[0m
+[0;32mI (704847) i2c: [0m
+[0;32mI (705247) i2c: x is :j[0m
+[0;32mI (705247) i2c: [0m
+[0;32mI (706047) i2c: x is :k[0m
+[0;32mI (706047) i2c: [0m
+[0;32mI (706447) i2c: x is :l[0m
+[0;32mI (706447) i2c: [0m
+[0;32mI (706757) i2c: x is :m[0m
+[0;32mI (706757) i2c: [0m
+[0;32mI (707557) i2c: x is :n[0m
+[0;32mI (707557) i2c: [0m
+[0;32mI (708357) i2c: x is :p[0m
+[0;32mI (708357) i2c: [0m
+[0;32mI (708757) i2c: x is :q[0m
+[0;32mI (708757) i2c: [0m
+[0;32mI (709557) i2c: x is :r[0m
+[0;32mI (709557) i2c: [0m
+[0;32mI (709957) i2c: x is :s[0m
+[0;32mI (709957) i2c: [0m
+[0;32mI (710357) i2c: x is ::[0m
+[0;32mI (710357) i2c: [0m
+[0;32mI (710757) i2c: x is :u[0m
+[0;32mI (710757) i2c: [0m
+[0;32mI (711557) i2c: x is :v[0m
+[0;32mI (711557) i2c: [0m

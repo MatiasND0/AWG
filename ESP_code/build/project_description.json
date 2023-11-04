@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "app-template",
-    "project_version":    "270fd80-dirty",
+    "project_version":    "3b2d56c-dirty",
     "project_path":       "/home/matiasnd/awg/ESP_code",
     "idf_path":           "/home/matiasnd/esp/esp-idf",
     "build_dir":          "/home/matiasnd/awg/ESP_code/build",
