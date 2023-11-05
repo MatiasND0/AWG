@@ -10,6 +10,8 @@
 #include <sys/wait.h>
 #include <cstdint>
 #include <cmath>
+#include <pthread.h>
+#include <semaphore.h>
 
 #define UI_WIDTH 480
 #define UI_HEIGHT 320
@@ -28,15 +30,6 @@ enum WND_ID
 {
 	ID_ROOT = 1,
 	ID_BUTTON_1,
-	ID_BUTTON_2,
-	ID_BUTTON_3,
-	ID_BUTTON_4,
-	ID_BUTTON_5,
-	ID_BUTTON_10,
-	ID_LABEL_11,
-	ID_LABEL_12,
-	ID_LABEL_13,
-	ID_LABEL_14,
 	ID_SPIN_BOX_1,
 	ID_SPIN_BOX_2,
 	ID_SPIN_BOX_3,
@@ -68,9 +61,9 @@ class MVC : public c_wnd
 		list_box_2->add_item((char*)"CH2");
 		list_box_2->select_item(0);
 
-		c_button* main_button_3 = (c_button*)get_wnd_ptr(ID_BUTTON_3);
-		c_button* main_button_4 = (c_button*)get_wnd_ptr(ID_BUTTON_4);
-		c_button* main_button_5 = (c_button*)get_wnd_ptr(ID_BUTTON_5);
+		c_button* main_button_1 = (c_button*)get_wnd_ptr(ID_BUTTON_1);
+		main_button_1->set_on_click((WND_CALLBACK)&MVC::on_button_click);
+		
 
 
 		c_spin_box *c_spin_box_1 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_1);
@@ -78,20 +71,21 @@ class MVC : public c_wnd
 		c_spin_box_1->set_max_min(5000,50);
 
 		c_spin_box *c_spin_box_2 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_2);
-		c_spin_box_2->set_value(5000);
+		c_spin_box_2->set_value(180);
 		c_spin_box_2->set_max_min(360,0);
 
 		c_spin_box *c_spin_box_3 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_3);
 		c_spin_box_3->set_value_digit(2);
+		c_spin_box_3->set_step(1);
+		c_spin_box_3->set_value(165);
 		c_spin_box_3->set_max_min(330,0);
-		c_spin_box_3->set_value(330);
 		
 		c_spin_box *c_spin_box_4 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_4);
+		c_spin_box_4->set_value_digit(2);
+		c_spin_box_4->set_step(1);
 		c_spin_box_4->set_value(165);
-		c_spin_box_4->set_max_min(5,-5);
-
-
-
+		c_spin_box_4->set_max_min(330,0);
+		
 
 	}
 	virtual void on_paint(void)
@@ -129,7 +123,6 @@ class MVC : public c_wnd
 			j++;
 		}
 	}
-
 	void draw_ramp(int amp_h, int amp_l,float duty){
 
 		for(int i=0; i<10 ;i+=2)	
@@ -138,15 +131,14 @@ class MVC : public c_wnd
 			m_surface->draw_line(C_WIDTH_S+(C_WIDTH_R*(i+2*duty)/10), C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R*(i+2)/10, C_HEIGHT_S+C_HEIGHT_R/2+amp_l, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 		}
 	}
-
 	void draw_sine(float amp, float phase, float offset){
 
 		amp = (amp/100)*C_HEIGHT_R/10;
+		offset = offset/100*C_HEIGHT_R/10;
 
 		for(int i=0;i<350;i++)	
 			m_surface->draw_line((C_WIDTH_S+i),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin(i*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase))-offset,(C_WIDTH_S+i+1),((C_HEIGHT_S+C_HEIGHT_R/2)-amp*sin((i+1)*3.14/(C_WIDTH_R/4)-(3.14/2.5)+phase))-offset,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 	}
-	
 	void draw_noise(void){
 		int last_noise = 0;
 		int noise = 0;
@@ -157,7 +149,6 @@ class MVC : public c_wnd
 			last_noise = noise;
 		}
 	}	
-
 	void draw_chart(void){
 		//chart background
 		m_surface->fill_rect(C_WIDTH_S,C_HEIGHT_S,C_WIDTH_S+C_WIDTH_R,C_HEIGHT_S+C_HEIGHT_R,GL_RGB(25, 25, 25),Z_ORDER_LEVEL_0);
@@ -176,7 +167,19 @@ class MVC : public c_wnd
 
 	}	
 
-	
+	void on_button_click(int ctrl_id, int value)
+	{
+		char sys_str[50] = "i2ctransfer -y 1 w9@0x28";
+		char aux[4];
+
+		for (int i = 0; i < 9; i++)
+		{
+			snprintf(aux, 4, " %d",tx_buff[i]);
+			strcat(sys_str,aux);
+		}
+		
+		system(sys_str);
+	}
 
 	void on_listbox_confirm(int ctrl_id, int value)
 	{
@@ -242,6 +245,7 @@ class MVC : public c_wnd
 		c_spin_box *c_spin_box_3 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_3);
 		c_spin_box *c_spin_box_4 = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_4);
 		
+		int freq = c_spin_box_1->get_cur_value();
 		int phase = c_spin_box_2->get_cur_value();
 		int amp = c_spin_box_3->get_cur_value();
 		int offset = c_spin_box_4->get_cur_value();
@@ -249,6 +253,14 @@ class MVC : public c_wnd
 
 		switch (ID)
 		{
+			case ID_SPIN_BOX_1:
+				if(dir == 1 && freq < 5000)
+					freq += 10;
+				else
+					if(dir == 0 && freq > 50)
+						freq -= 10;
+				c_spin_box_1->set_value(freq);
+				break;
 			case ID_SPIN_BOX_2:
 				if(dir == 1 && phase < 360)
 					phase += 10;
@@ -267,10 +279,10 @@ class MVC : public c_wnd
 				break;
 			case ID_SPIN_BOX_4:
 				if(dir == 1 && offset < 500)
-					offset += 10;
+					offset += 5;
 				else
 					if(dir == 0 && offset > 0)
-						offset -= 10;
+						offset -= 5;
 				c_spin_box_4->set_value(offset);
 				break;
 			
@@ -298,13 +310,32 @@ class MVC : public c_wnd
 		}
 	}
 
+	int get_focus_item(void)
+	{
+		c_spin_box* s_spin_box[4]; 
+		s_spin_box[0] = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_1);
+		s_spin_box[1] = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_2);
+		s_spin_box[2] = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_3);
+		s_spin_box[3] = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX_4);
+		
+		for (int i = 0; i < 4; i++)
+		{
+			if( s_spin_box[i]->is_focus() == 2 )
+			{
+				return s_spin_box[i]->get_id();
+			}
+		}
+
+		return 0;
+
+	}
+
 };
 
 static MVC mvc;
-static c_button main_button_1,main_button_2,main_button_3,main_button_4,main_button_5;
+static c_button main_button_1;
 static c_list_box list_box_1,list_box_2;
 
-static c_label s_label_1, s_label_2, s_label_3, s_label_4;
 static c_spin_box s_spin_box_1,s_spin_box_2,s_spin_box_3,s_spin_box_4;
 
 
@@ -312,17 +343,11 @@ WND_TREE main_window[] =
 {
 	{ &list_box_1,		ID_LIST_BOX_1,		"Sine",				5, 35, 75, 50},
 	{ &list_box_2,		ID_LIST_BOX_2,		"CH1",				5, 85, 75, 50},
-	{ &main_button_3,	ID_BUTTON_3,		"B",				5, 135, 75, 50},
-	{ &main_button_4,	ID_BUTTON_4,		"C",				5, 185, 75, 50},
-	{ &main_button_5,	ID_BUTTON_5,		"D",				5, 235, 75, 50},
-	{ &s_spin_box_1,	ID_SPIN_BOX_1,		"1000 Hz",			95+15+75, 35+116/4-30/2, 75, 30},
-	{ &s_spin_box_2,	ID_SPIN_BOX_2,		"0 deg",			95+15+75, 35+116*2/4+30/2, 75, 30},
-	{ &s_spin_box_3,	ID_SPIN_BOX_3,		"5 Vpp",			95+190+75, 35+116/4-30/2, 75, 30},
-	{ &s_spin_box_4,	ID_SPIN_BOX_4,		"0 V",				95+190+75, 35+116*2/4+30/2, 75, 30},
-	{ &s_label_1,		ID_LABEL_11,		"Frequency",		95+15, 35+116/4-30/2, 75, 30},
-	{ &s_label_2,		ID_LABEL_12,		"Phase",			95+15, 35+116*2/4+30/2, 75, 30},
-	{ &s_label_3,		ID_LABEL_13,		"Amplitude",		95+190, 35+116/4-30/2, 75, 30},
-	{ &s_label_4,		ID_LABEL_14,		"Offset",			95+190, 35+116*2/4+30/2, 75, 30},
+	{ &main_button_1,	ID_BUTTON_1,		"Enter",			5, 235, 75, 50},
+	{ &s_spin_box_1,	ID_SPIN_BOX_1,		"Frequency",		95+15+75, 35+116/4-30/2, 75, 30},
+	{ &s_spin_box_2,	ID_SPIN_BOX_2,		"Phase",			95+15+75, 35+116*2/4+30/2, 75, 30},
+	{ &s_spin_box_3,	ID_SPIN_BOX_3,		"Amplitude",		95+190+75, 35+116/4-30/2, 75, 30},
+	{ &s_spin_box_4,	ID_SPIN_BOX_4,		"Offset",			95+190+75, 35+116*2/4+30/2, 75, 30},
 	{NULL, 0, 0, 0, 0, 0, 0}
 };
 
@@ -351,7 +376,7 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 
 //Loop Principal.
 void mainLoop(void* phy_fb, int width, int height, int color_bytes){
-	
+
 	create_ui(phy_fb, width, height, color_bytes);
 
 	char buffer[75];
@@ -365,52 +390,37 @@ void mainLoop(void* phy_fb, int width, int height, int color_bytes){
    // Read the message from the named pipe
 
 	thread_sleep(1);
-	
+	int focus;
 	while(1)
 	{
 		int rec = read(fd, buffer, sizeof(buffer));
 		if (rec>0){
 			buffer[rec]=0;
-				mvc.get_values();
-				if (strcmp("adelante",buffer)==0){
-					mvc.on_navigate(NAVIGATION_KEY(0));
-					printf("moviendo adelante\n");
-					for (int i = 0; i < 9; i++)
-						printf("%x\n",(tx_buff[i]));
-				}
-				if (strcmp("atras",buffer)==0){
-					mvc.on_navigate(NAVIGATION_KEY(1));
-					printf("moviendo atras\n");
-				}
-				if (strcmp("enter",buffer)==0){
-					mvc.on_navigate(NAVIGATION_KEY(2));
-					printf("haciendo enter\n");
-				}
-				if (strcmp("inc_ph",buffer)==0){
-					mvc.set_spinbox_value(1,ID_SPIN_BOX_2);
-					printf("Incrementando fase\n");
-				}
-				if (strcmp("dec_ph",buffer)==0){
-					mvc.set_spinbox_value(0,ID_SPIN_BOX_2);
-					printf("Decrementando fase\n");
-				}
-				if (strcmp("inc_amp",buffer)==0){
-					mvc.set_spinbox_value(1,ID_SPIN_BOX_3);
-					printf("Incrementando amplitud\n");
-				}
-				if (strcmp("dec_amp",buffer)==0){
-					mvc.set_spinbox_value(0,ID_SPIN_BOX_3);
-					printf("Decrementando amplitud\n");
-				}
-				if (strcmp("inc_off",buffer)==0){
-					mvc.set_spinbox_value(1,ID_SPIN_BOX_4);
-					printf("Incrementando fase\n");
-				}
-				if (strcmp("dec_off",buffer)==0){
-					mvc.set_spinbox_value(0,ID_SPIN_BOX_4);
-					printf("Decrementando fase\n");
-				}
+			mvc.get_values();
+			focus = mvc.get_focus_item();
+			
+			if (strcmp("adelante",buffer)==0){
+				//printf("moviendo adelante\n");
+				mvc.on_navigate(NAVIGATION_KEY(0));
+			}
+			if (strcmp("atras",buffer)==0){
+				//printf("moviendo atras\n");
+				mvc.on_navigate(NAVIGATION_KEY(1));
+			}
+			if (strcmp("enter",buffer)==0){
+				//printf("haciendo enter\n");
+				mvc.on_navigate(NAVIGATION_KEY(2));
+			}
 
+			if (strcmp("inc",buffer)==0){
+				//printf("Incrementando\n");
+				mvc.set_spinbox_value(true,focus);
+			}
+			if (strcmp("dec",buffer)==0){
+				//printf("Decrementando\n");
+				mvc.set_spinbox_value(false,focus);
+			}
+			
 		}
 		
 	}

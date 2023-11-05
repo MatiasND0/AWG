@@ -2837,12 +2837,15 @@ class c_spin_button : public c_button
 {
 	friend class c_spin_box;
 	inline virtual void on_touch(int x, int y, TOUCH_ACTION action);
+	inline virtual void on_focus();
+	inline virtual void on_kill_focus();
 	c_spin_box* m_spin_box;
 };
 class c_spin_box : public c_wnd
 {
 	friend class c_spin_button;
 public:
+	short is_focus() { return m_bt_up.m_status; }
 	short get_cur_value() { return m_cur_value; }
 	short get_value() { return m_value; }
 	void set_value(unsigned short value) { m_value = m_cur_value = value;on_paint(); }
@@ -2873,10 +2876,10 @@ protected:
 		m_digit = 0;
 		m_step = 1;
 		//link arrow button position.
-		//c_rect rect;
-		//get_wnd_rect(rect);
-		//m_bt_down.m_spin_box = m_bt_up.m_spin_box = this;
-		//m_bt_up.connect(m_parent, ID_BT_ARROW_UP, "+", (rect.m_left + rect.width() * 2 / 3), rect.m_top, (rect.width() / 3), (rect.height() / 2));
+		c_rect rect;
+		get_wnd_rect(rect);
+		m_bt_down.m_spin_box = m_bt_up.m_spin_box = this;
+		m_bt_up.connect(m_parent, ID_BT_ARROW_UP, m_str, rect.m_left-rect.width(), rect.m_top, rect.width(), rect.height());
 		//m_bt_down.connect(m_parent, ID_BT_ARROW_DOWN, "-", (rect.m_left + rect.width() * 2 / 3), (rect.m_top + rect.height() / 2), (rect.width() / 3), (rect.height() / 2));
 	}
 	void on_arrow_up_bt_click()
@@ -2905,6 +2908,7 @@ protected:
 		}
 		on_paint();
 	}
+
 	short			m_cur_value;
 	short			m_value;
 	short			m_step;
@@ -2923,6 +2927,19 @@ inline void c_spin_button::on_touch(int x, int y, TOUCH_ACTION action)
 	}
 	c_button::on_touch(x, y, action);
 }
+
+inline void c_spin_button::on_focus()
+{
+	m_status = STATUS_FOCUSED;
+	on_paint();
+}
+
+inline void c_spin_button::on_kill_focus()
+{
+	m_status = STATUS_NORMAL;
+	on_paint();
+}
+
 #define  MAX_COL_NUM  30
 #define  MAX_ROW_NUM  30
 class c_table: public c_wnd
