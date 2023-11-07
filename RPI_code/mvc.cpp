@@ -88,7 +88,7 @@ class MVC : public c_wnd
 	}
 	virtual void on_paint(void)
 	{
-		m_surface->fill_rect(0, 0, UI_WIDTH, UI_HEIGHT,GL_RGB(27, 27, 27),Z_ORDER_LEVEL_2);
+		m_surface->fill_rect(0, 0, UI_WIDTH, UI_HEIGHT,GL_RGB(27, 27, 27),Z_ORDER_LEVEL_0);
 		m_surface->draw_rect(4, 34, 81, C_HEIGHT_S+C_HEIGHT_R+1,GL_RGB(60,60,60),Z_ORDER_LEVEL_2);//buttons rect
 		m_surface->draw_rect(94, 34, 446, 180,GL_RGB(60,60,60),Z_ORDER_LEVEL_2);//params rect
 		m_surface->draw_rect(C_WIDTH_S-1,C_HEIGHT_S-1,C_WIDTH_S+C_WIDTH_R+1,C_HEIGHT_S+C_HEIGHT_R+1,GL_RGB(60,60,60),Z_ORDER_LEVEL_2);//chart rect
@@ -102,7 +102,8 @@ class MVC : public c_wnd
 		for (int i = -1; i < 10; i+=2)
 		{
 			//vertical segments
-			m_surface->draw_line(C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2+amp_l,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
+			if(i != -1	)
+				m_surface->draw_line(C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R/10*(i), C_HEIGHT_S+C_HEIGHT_R/2+amp_l,GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 			
 			if(j%2 == 0)
 			{
@@ -121,7 +122,11 @@ class MVC : public c_wnd
 			j++;
 		}
 	}
-	void draw_ramp(int amp_h, int amp_l,float duty){
+	void draw_ramp(float amp_h, float amp_l,float duty, int offset){
+
+		amp_h = (amp_h/100)*C_HEIGHT_R/10;
+		amp_l = (amp_l/100)*C_HEIGHT_R/10;
+		offset = offset/100*C_HEIGHT_R/10;
 
 		for(int i=0; i<10 ;i+=2)	
 		{	
@@ -129,6 +134,7 @@ class MVC : public c_wnd
 			m_surface->draw_line(C_WIDTH_S+(C_WIDTH_R*(i+2*duty)/10), C_HEIGHT_S+C_HEIGHT_R/2-amp_h, C_WIDTH_S+C_WIDTH_R*(i+2)/10, C_HEIGHT_S+C_HEIGHT_R/2+amp_l, GL_RGB(255, 255, 0),Z_ORDER_LEVEL_2);
 		}
 	}
+
 	void draw_sine(float amp, float phase, float offset){
 
 		amp = (amp/100)*C_HEIGHT_R/10;
@@ -189,7 +195,7 @@ class MVC : public c_wnd
 				break;
 			case 1://ramp
 				draw_chart();
-				draw_ramp(C_WIDTH_R/10*3,C_WIDTH_R/10*2,.3);
+				draw_ramp(165,0,.5,0);
 				break;
 			case 2://square
 				draw_chart();
@@ -268,7 +274,7 @@ class MVC : public c_wnd
 				c_spin_box_2->set_value(phase);
 				break;
 			case ID_SPIN_BOX_3:
-				if(dir == 1 && amp < 500)
+				if(dir == 1 && amp < 330)
 					amp += 10;
 				else
 					if(dir == 0 && amp > 0)
@@ -276,7 +282,7 @@ class MVC : public c_wnd
 				c_spin_box_3->set_value(amp);
 				break;
 			case ID_SPIN_BOX_4:
-				if(dir == 1 && offset < 500)
+				if(dir == 1 && offset < 330)
 					offset += 5;
 				else
 					if(dir == 0 && offset > 0)
@@ -295,7 +301,7 @@ class MVC : public c_wnd
 			draw_sine(amp,phase*3.14/180,offset);
 			break;
 		case 1:
-			draw_ramp(30,30,.5);
+			draw_ramp(amp,0,.5,0);
 			break;
 		case 2:
 			draw_sqr(30,30,5);
