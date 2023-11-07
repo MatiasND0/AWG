@@ -10,8 +10,6 @@
 #include <sys/wait.h>
 #include <cstdint>
 #include <cmath>
-#include <pthread.h>
-#include <semaphore.h>
 
 #define UI_WIDTH 480
 #define UI_HEIGHT 320
